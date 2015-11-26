@@ -28,7 +28,7 @@
     [self initWeekBtn];
     [self addTableOfWeek];
     [self getClassTable:^(NSMutableDictionary *dictionary) {
-//        THLog(@"%@",dictionary);
+        THLog(@"%@",dictionary);
     }];
 }
 
