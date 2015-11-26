@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "THLoginViewController.h"
+#import "THTabbarViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIWindow *window = [[UIWindow alloc] init];
+    window.frame = [UIScreen mainScreen].bounds;
+    THLoginViewController *classTab = [[THLoginViewController alloc] init];
+    window.rootViewController = classTab;
+    self.window = window;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

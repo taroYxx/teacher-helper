@@ -7,14 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500C680F1C06E77500C0E896 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C680E1C06E77500C0E896 /* XYPieChart.m */; };
+		500C68241C06F6B700C0E896 /* THSetAccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68131C06F6B700C0E896 /* THSetAccountTableViewController.m */; };
+		500C68251C06F6B700C0E896 /* THSettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68161C06F6B700C0E896 /* THSettingGroup.m */; };
+		500C68261C06F6B700C0E896 /* THSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68181C06F6B700C0E896 /* THSettingItem.m */; };
+		500C68271C06F6B700C0E896 /* THSetNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C681B1C06F6B700C0E896 /* THSetNoticeViewController.m */; };
+		500C68281C06F6B700C0E896 /* THSetStaticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C681E1C06F6B700C0E896 /* THSetStaticViewController.m */; };
+		500C68291C06F6B700C0E896 /* THSetSubAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68211C06F6B700C0E896 /* THSetSubAccountViewController.m */; };
+		500C682D1C06F81B00C0E896 /* THSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C682C1C06F81B00C0E896 /* THSettingTableViewController.m */; };
+		500C68311C07040F00C0E896 /* THLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68301C07040F00C0E896 /* THLoginViewController.m */; };
+		500C68341C07045600C0E896 /* MBProgressHUD+YXX.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68331C07045600C0E896 /* MBProgressHUD+YXX.m */; };
+		500C68381C07378800C0E896 /* THClassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68371C07378800C0E896 /* THClassTableViewController.m */; };
+		500C683C1C0737AF00C0E896 /* THClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C683B1C0737AF00C0E896 /* THClass.m */; };
+		504227061C06A4DB0059E94D /* THRollCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504227051C06A4DB0059E94D /* THRollCallViewController.m */; };
+		5042270D1C06AB690059E94D /* THDetailOfRollcallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5042270C1C06AB690059E94D /* THDetailOfRollcallViewController.m */; };
+		504227111C06ABE60059E94D /* THFillCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504227101C06ABE60059E94D /* THFillCheckViewController.m */; };
+		504AC71D1C05B1EF00FF23AF /* THTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AC71C1C05B1EF00FF23AF /* THTabbarViewController.m */; };
+		504AC7211C05B27600FF23AF /* THStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AC7201C05B27600FF23AF /* THStatisticsViewController.m */; };
 		507ECECE1C017F7400F32D47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECECD1C017F7400F32D47 /* main.m */; };
 		507ECED11C017F7400F32D47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECED01C017F7400F32D47 /* AppDelegate.m */; };
-		507ECED41C017F7400F32D47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECED31C017F7400F32D47 /* ViewController.m */; };
-		507ECED71C017F7400F32D47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507ECED51C017F7400F32D47 /* Main.storyboard */; };
 		507ECED91C017F7400F32D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507ECED81C017F7400F32D47 /* Assets.xcassets */; };
 		507ECEDC1C017F7400F32D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507ECEDA1C017F7400F32D47 /* LaunchScreen.storyboard */; };
 		507ECEE71C017F7400F32D47 /* THTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECEE61C017F7400F32D47 /* THTests.m */; };
 		507ECEF21C017F7400F32D47 /* THUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECEF11C017F7400F32D47 /* THUITests.m */; };
+		7310ED36B314379D3EB6F144 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6748B2A5D4FDABED4E797A2E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,13 +51,45 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B5F5B02F6BB0E4A9DB3068E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		500C680D1C06E77500C0E896 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		500C680E1C06E77500C0E896 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
+		500C68121C06F6B700C0E896 /* THSetAccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSetAccountTableViewController.h; sourceTree = "<group>"; };
+		500C68131C06F6B700C0E896 /* THSetAccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSetAccountTableViewController.m; sourceTree = "<group>"; };
+		500C68151C06F6B700C0E896 /* THSettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSettingGroup.h; sourceTree = "<group>"; };
+		500C68161C06F6B700C0E896 /* THSettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSettingGroup.m; sourceTree = "<group>"; };
+		500C68171C06F6B700C0E896 /* THSettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSettingItem.h; sourceTree = "<group>"; };
+		500C68181C06F6B700C0E896 /* THSettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSettingItem.m; sourceTree = "<group>"; };
+		500C681A1C06F6B700C0E896 /* THSetNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSetNoticeViewController.h; sourceTree = "<group>"; };
+		500C681B1C06F6B700C0E896 /* THSetNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSetNoticeViewController.m; sourceTree = "<group>"; };
+		500C681D1C06F6B700C0E896 /* THSetStaticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSetStaticViewController.h; sourceTree = "<group>"; };
+		500C681E1C06F6B700C0E896 /* THSetStaticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSetStaticViewController.m; sourceTree = "<group>"; };
+		500C68201C06F6B700C0E896 /* THSetSubAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSetSubAccountViewController.h; sourceTree = "<group>"; };
+		500C68211C06F6B700C0E896 /* THSetSubAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSetSubAccountViewController.m; sourceTree = "<group>"; };
+		500C682B1C06F81B00C0E896 /* THSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THSettingTableViewController.h; path = subaccount/THSettingTableViewController.h; sourceTree = "<group>"; };
+		500C682C1C06F81B00C0E896 /* THSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = THSettingTableViewController.m; path = subaccount/THSettingTableViewController.m; sourceTree = "<group>"; };
+		500C682F1C07040F00C0E896 /* THLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THLoginViewController.h; sourceTree = "<group>"; };
+		500C68301C07040F00C0E896 /* THLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THLoginViewController.m; sourceTree = "<group>"; };
+		500C68321C07045600C0E896 /* MBProgressHUD+YXX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+YXX.h"; sourceTree = "<group>"; };
+		500C68331C07045600C0E896 /* MBProgressHUD+YXX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+YXX.m"; sourceTree = "<group>"; };
+		500C68361C07378800C0E896 /* THClassTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THClassTableViewController.h; sourceTree = "<group>"; };
+		500C68371C07378800C0E896 /* THClassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THClassTableViewController.m; sourceTree = "<group>"; };
+		500C683A1C0737AF00C0E896 /* THClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THClass.h; sourceTree = "<group>"; };
+		500C683B1C0737AF00C0E896 /* THClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THClass.m; sourceTree = "<group>"; };
+		504227041C06A4DB0059E94D /* THRollCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THRollCallViewController.h; sourceTree = "<group>"; };
+		504227051C06A4DB0059E94D /* THRollCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THRollCallViewController.m; sourceTree = "<group>"; };
+		5042270B1C06AB690059E94D /* THDetailOfRollcallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THDetailOfRollcallViewController.h; sourceTree = "<group>"; };
+		5042270C1C06AB690059E94D /* THDetailOfRollcallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDetailOfRollcallViewController.m; sourceTree = "<group>"; };
+		5042270F1C06ABE60059E94D /* THFillCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFillCheckViewController.h; sourceTree = "<group>"; };
+		504227101C06ABE60059E94D /* THFillCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFillCheckViewController.m; sourceTree = "<group>"; };
+		504AC71B1C05B1EF00FF23AF /* THTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTabbarViewController.h; sourceTree = "<group>"; };
+		504AC71C1C05B1EF00FF23AF /* THTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTabbarViewController.m; sourceTree = "<group>"; };
+		504AC71F1C05B27600FF23AF /* THStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THStatisticsViewController.h; sourceTree = "<group>"; };
+		504AC7201C05B27600FF23AF /* THStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THStatisticsViewController.m; sourceTree = "<group>"; };
 		507ECEC91C017F7400F32D47 /* TH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		507ECECD1C017F7400F32D47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		507ECECF1C017F7400F32D47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		507ECED01C017F7400F32D47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		507ECED21C017F7400F32D47 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		507ECED31C017F7400F32D47 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		507ECED61C017F7400F32D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		507ECED81C017F7400F32D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		507ECEDB1C017F7400F32D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		507ECEDD1C017F7400F32D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +99,9 @@
 		507ECEED1C017F7400F32D47 /* THUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		507ECEF11C017F7400F32D47 /* THUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUITests.m; sourceTree = "<group>"; };
 		507ECEF31C017F7400F32D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		507ECF051C01833700F32D47 /* TH-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TH-PrefixHeader.pch"; sourceTree = "<group>"; };
+		62218BB5DC3CAE8A832014A5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		6748B2A5D4FDABED4E797A2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7310ED36B314379D3EB6F144 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +130,177 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17B47321C5FFFCFA02703FEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62218BB5DC3CAE8A832014A5 /* Pods.debug.xcconfig */,
+				0B5F5B02F6BB0E4A9DB3068E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		500C680A1C06E76200C0E896 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				500C68321C07045600C0E896 /* MBProgressHUD+YXX.h */,
+				500C68331C07045600C0E896 /* MBProgressHUD+YXX.m */,
+				500C680B1C06E76200C0E896 /* tool */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		500C680B1C06E76200C0E896 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				500C680C1C06E77500C0E896 /* XYPieChart */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		500C680C1C06E77500C0E896 /* XYPieChart */ = {
+			isa = PBXGroup;
+			children = (
+				500C680D1C06E77500C0E896 /* XYPieChart.h */,
+				500C680E1C06E77500C0E896 /* XYPieChart.m */,
+			);
+			path = XYPieChart;
+			sourceTree = "<group>";
+		};
+		500C68101C06F6B700C0E896 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				500C682B1C06F81B00C0E896 /* THSettingTableViewController.h */,
+				500C682C1C06F81B00C0E896 /* THSettingTableViewController.m */,
+				500C68111C06F6B700C0E896 /* account */,
+				500C68141C06F6B700C0E896 /* model */,
+				500C68191C06F6B700C0E896 /* notice */,
+				500C681C1C06F6B700C0E896 /* Static */,
+				500C681F1C06F6B700C0E896 /* subaccount */,
+			);
+			name = setting;
+			path = ClassTable/setting;
+			sourceTree = "<group>";
+		};
+		500C68111C06F6B700C0E896 /* account */ = {
+			isa = PBXGroup;
+			children = (
+				500C68121C06F6B700C0E896 /* THSetAccountTableViewController.h */,
+				500C68131C06F6B700C0E896 /* THSetAccountTableViewController.m */,
+			);
+			path = account;
+			sourceTree = "<group>";
+		};
+		500C68141C06F6B700C0E896 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				500C68151C06F6B700C0E896 /* THSettingGroup.h */,
+				500C68161C06F6B700C0E896 /* THSettingGroup.m */,
+				500C68171C06F6B700C0E896 /* THSettingItem.h */,
+				500C68181C06F6B700C0E896 /* THSettingItem.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		500C68191C06F6B700C0E896 /* notice */ = {
+			isa = PBXGroup;
+			children = (
+				500C681A1C06F6B700C0E896 /* THSetNoticeViewController.h */,
+				500C681B1C06F6B700C0E896 /* THSetNoticeViewController.m */,
+			);
+			path = notice;
+			sourceTree = "<group>";
+		};
+		500C681C1C06F6B700C0E896 /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				500C681D1C06F6B700C0E896 /* THSetStaticViewController.h */,
+				500C681E1C06F6B700C0E896 /* THSetStaticViewController.m */,
+			);
+			path = Static;
+			sourceTree = "<group>";
+		};
+		500C681F1C06F6B700C0E896 /* subaccount */ = {
+			isa = PBXGroup;
+			children = (
+				500C68201C06F6B700C0E896 /* THSetSubAccountViewController.h */,
+				500C68211C06F6B700C0E896 /* THSetSubAccountViewController.m */,
+			);
+			path = subaccount;
+			sourceTree = "<group>";
+		};
+		500C682E1C07040F00C0E896 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				500C682F1C07040F00C0E896 /* THLoginViewController.h */,
+				500C68301C07040F00C0E896 /* THLoginViewController.m */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		500C68351C07378800C0E896 /* classtable */ = {
+			isa = PBXGroup;
+			children = (
+				500C68391C07379500C0E896 /* model */,
+				500C68361C07378800C0E896 /* THClassTableViewController.h */,
+				500C68371C07378800C0E896 /* THClassTableViewController.m */,
+			);
+			path = classtable;
+			sourceTree = "<group>";
+		};
+		500C68391C07379500C0E896 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				500C683A1C0737AF00C0E896 /* THClass.h */,
+				500C683B1C0737AF00C0E896 /* THClass.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		504227031C06A4A20059E94D /* rollcall */ = {
+			isa = PBXGroup;
+			children = (
+				504227041C06A4DB0059E94D /* THRollCallViewController.h */,
+				504227051C06A4DB0059E94D /* THRollCallViewController.m */,
+			);
+			path = rollcall;
+			sourceTree = "<group>";
+		};
+		5042270A1C06AB690059E94D /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				5042270B1C06AB690059E94D /* THDetailOfRollcallViewController.h */,
+				5042270C1C06AB690059E94D /* THDetailOfRollcallViewController.m */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		5042270E1C06ABD90059E94D /* fillcheck */ = {
+			isa = PBXGroup;
+			children = (
+				5042270F1C06ABE60059E94D /* THFillCheckViewController.h */,
+				504227101C06ABE60059E94D /* THFillCheckViewController.m */,
+			);
+			path = fillcheck;
+			sourceTree = "<group>";
+		};
+		504AC71A1C05B1EF00FF23AF /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				504AC71B1C05B1EF00FF23AF /* THTabbarViewController.h */,
+				504AC71C1C05B1EF00FF23AF /* THTabbarViewController.m */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		504AC71E1C05B24C00FF23AF /* statistics */ = {
+			isa = PBXGroup;
+			children = (
+				504AC71F1C05B27600FF23AF /* THStatisticsViewController.h */,
+				504AC7201C05B27600FF23AF /* THStatisticsViewController.m */,
+			);
+			path = statistics;
+			sourceTree = "<group>";
+		};
 		507ECEC01C017F7400F32D47 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +308,8 @@
 				507ECEE51C017F7400F32D47 /* THTests */,
 				507ECEF01C017F7400F32D47 /* THUITests */,
 				507ECECA1C017F7400F32D47 /* Products */,
+				17B47321C5FFFCFA02703FEA /* Pods */,
+				9CE0711C7FFFB043CE55D7A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +326,15 @@
 		507ECECB1C017F7400F32D47 /* TH */ = {
 			isa = PBXGroup;
 			children = (
+				500C682E1C07040F00C0E896 /* login */,
+				500C68101C06F6B700C0E896 /* setting */,
+				500C680A1C06E76200C0E896 /* lib */,
+				507ECEFF1C01802800F32D47 /* ClassTable */,
+				504AC71E1C05B24C00FF23AF /* statistics */,
+				504AC71A1C05B1EF00FF23AF /* Tabbar */,
+				507ECF031C0182F800F32D47 /* other */,
 				507ECECF1C017F7400F32D47 /* AppDelegate.h */,
 				507ECED01C017F7400F32D47 /* AppDelegate.m */,
-				507ECED21C017F7400F32D47 /* ViewController.h */,
-				507ECED31C017F7400F32D47 /* ViewController.m */,
-				507ECED51C017F7400F32D47 /* Main.storyboard */,
 				507ECED81C017F7400F32D47 /* Assets.xcassets */,
 				507ECEDA1C017F7400F32D47 /* LaunchScreen.storyboard */,
 				507ECEDD1C017F7400F32D47 /* Info.plist */,
@@ -140,6 +369,33 @@
 			path = THUITests;
 			sourceTree = "<group>";
 		};
+		507ECEFF1C01802800F32D47 /* ClassTable */ = {
+			isa = PBXGroup;
+			children = (
+				500C68351C07378800C0E896 /* classtable */,
+				5042270E1C06ABD90059E94D /* fillcheck */,
+				5042270A1C06AB690059E94D /* detail */,
+				504227031C06A4A20059E94D /* rollcall */,
+			);
+			path = ClassTable;
+			sourceTree = "<group>";
+		};
+		507ECF031C0182F800F32D47 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				507ECF051C01833700F32D47 /* TH-PrefixHeader.pch */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		9CE0711C7FFFB043CE55D7A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6748B2A5D4FDABED4E797A2E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +403,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 507ECEF61C017F7400F32D47 /* Build configuration list for PBXNativeTarget "TH" */;
 			buildPhases = (
+				B4EE0653E9916858329282D5 /* Check Pods Manifest.lock */,
 				507ECEC51C017F7400F32D47 /* Sources */,
 				507ECEC61C017F7400F32D47 /* Frameworks */,
 				507ECEC71C017F7400F32D47 /* Resources */,
+				005BA3A9521ADD5C55A9C273 /* Embed Pods Frameworks */,
+				28B344E3AE59D4082EB4A83A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,6 +466,7 @@
 				TargetAttributes = {
 					507ECEC81C017F7400F32D47 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = Y7WKQP5SCN;
 					};
 					507ECEE11C017F7400F32D47 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -245,7 +505,6 @@
 			files = (
 				507ECEDC1C017F7400F32D47 /* LaunchScreen.storyboard in Resources */,
 				507ECED91C017F7400F32D47 /* Assets.xcassets in Resources */,
-				507ECED71C017F7400F32D47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,14 +524,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		005BA3A9521ADD5C55A9C273 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		28B344E3AE59D4082EB4A83A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4EE0653E9916858329282D5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		507ECEC51C017F7400F32D47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				507ECED41C017F7400F32D47 /* ViewController.m in Sources */,
+				5042270D1C06AB690059E94D /* THDetailOfRollcallViewController.m in Sources */,
+				504AC7211C05B27600FF23AF /* THStatisticsViewController.m in Sources */,
+				500C68281C06F6B700C0E896 /* THSetStaticViewController.m in Sources */,
 				507ECED11C017F7400F32D47 /* AppDelegate.m in Sources */,
+				500C68241C06F6B700C0E896 /* THSetAccountTableViewController.m in Sources */,
+				504227061C06A4DB0059E94D /* THRollCallViewController.m in Sources */,
+				500C68291C06F6B700C0E896 /* THSetSubAccountViewController.m in Sources */,
+				504227111C06ABE60059E94D /* THFillCheckViewController.m in Sources */,
+				500C68251C06F6B700C0E896 /* THSettingGroup.m in Sources */,
+				500C683C1C0737AF00C0E896 /* THClass.m in Sources */,
+				500C682D1C06F81B00C0E896 /* THSettingTableViewController.m in Sources */,
+				504AC71D1C05B1EF00FF23AF /* THTabbarViewController.m in Sources */,
+				500C680F1C06E77500C0E896 /* XYPieChart.m in Sources */,
+				500C68341C07045600C0E896 /* MBProgressHUD+YXX.m in Sources */,
+				500C68311C07040F00C0E896 /* THLoginViewController.m in Sources */,
+				500C68381C07378800C0E896 /* THClassTableViewController.m in Sources */,
 				507ECECE1C017F7400F32D47 /* main.m in Sources */,
+				500C68271C06F6B700C0E896 /* THSetNoticeViewController.m in Sources */,
+				500C68261C06F6B700C0E896 /* THSettingItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,14 +631,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		507ECED51C017F7400F32D47 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				507ECED61C017F7400F32D47 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		507ECEDA1C017F7400F32D47 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -411,9 +726,13 @@
 		};
 		507ECEF71C017F7400F32D47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62218BB5DC3CAE8A832014A5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "/Users/yuxiangxiang/Desktop/Teacher-Helper/TH/TH/other/TH-PrefixHeader.pch";
 				INFOPLIST_FILE = TH/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HDU.Teacher-Help.TH";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,9 +741,13 @@
 		};
 		507ECEF81C017F7400F32D47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B5F5B02F6BB0E4A9DB3068E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "/Users/yuxiangxiang/Desktop/Teacher-Helper/TH/TH/other/TH-PrefixHeader.pch";
 				INFOPLIST_FILE = TH/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HDU.Teacher-Help.TH";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +821,7 @@
 				507ECEF81C017F7400F32D47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		507ECEF91C017F7400F32D47 /* Build configuration list for PBXNativeTarget "THTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +830,7 @@
 				507ECEFB1C017F7400F32D47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		507ECEFC1C017F7400F32D47 /* Build configuration list for PBXNativeTarget "THUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +839,7 @@
 				507ECEFE1C017F7400F32D47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
