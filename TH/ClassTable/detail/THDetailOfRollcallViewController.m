@@ -38,7 +38,7 @@
     [self addXYpieChart];
     [self addButton];
     [self addTableView];
-    self.icon = @[[UIImage imageNamed:@"red_status"],[UIImage imageNamed:@"yellow_status"],[UIImage imageNamed:@"blue_status"],[UIImage imageNamed:@"green_status"]];
+    self.icon = @[[UIImage imageNamed:@"red_status"],[UIImage imageNamed:@"blue_status"],[UIImage imageNamed:@"yellow_status"],[UIImage imageNamed:@"green_status"]];
     self.selectIcon = [UIImage imageNamed:@"red_status"];
 }
 
@@ -107,10 +107,10 @@
     
     _nameOfSlice = [NSMutableArray arrayWithObjects:@"缺席",@"请假",@"迟到",@"已到",nil];
     self.colorOfSlice =[NSMutableArray arrayWithObjects:
-                         [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
-                         [UIColor colorWithRed:129/255.0 green:195/255.0 blue:29/255.0 alpha:1],
-                         [UIColor colorWithRed:62/255.0 green:173/255.0 blue:219/255.0 alpha:1],
-                         [UIColor colorWithRed:229/255.0 green:66/255.0 blue:115/255.0 alpha:1],
+                         XColor(208, 85, 90, 2),
+                         XColor(64, 186, 217, 1),
+                         XColor(255, 204, 43, 1),
+                         XColor(85, 219, 105, 1),
                          nil];
     [self.pieChart reloadData];
     [self.view addSubview:self.pieChart];
@@ -141,7 +141,7 @@
 
 - (void)addButton{
     NSArray *array = @[_absenceModel,_leaveModel,_laterModel,_arriveModel];
-        NSArray *bgViewName = @[@"re",@"yel",@"blu",@"gre"];
+        NSArray *bgViewName = @[@"re",@"blu",@"yel",@"gre"];
     for (int i = 0; i < 4; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         button.tag = i;
@@ -190,8 +190,6 @@
    
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        
-        
     }
     THdetailStudent *student = _modelArray[indexPath.row];
     cell.textLabel.text = student.studentName;
@@ -210,7 +208,6 @@
     NSArray *array = @[_absenceModel,_leaveModel,_laterModel,_arriveModel];
     self.modelArray = [array objectAtIndex:btn.tag];
     self.selectIcon = [self.icon objectAtIndex:btn.tag];
-    THLog(@"%@",self.selectIcon);
     [self.tableView reloadData];
 }
 

@@ -66,21 +66,14 @@
     _arriveArray = [[NSArray alloc] init];
     _leaveArray = [[NSArray alloc] init];
     _lateArray = [[NSArray alloc] init];
-    
-    
+
     _submitBtn = 0;
     NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] stringByAppendingPathComponent:@"student.sqlite"];
     _db = [FMDatabase databaseWithPath:path];
-    
-
     [_db open];
     
         
-        [_db executeUpdate:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS class_%@ (number integer PRIMARY KEY, studentId integer UNIQUE ,studentName text , lateTimes integer ,absence integer , leave integer , later integer , arrive integer );",self.courseId]];
-
-    
-    
-//       [_db executeUpdateWithFormat:@"INSERT INTO t_absence(studentId, studentName, lateTimes) VALUES (%@, %@, %@);", student.studentId, student.name, student.lateTimes];
+        [_db executeUpdate:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS class_%@ (number integer PRIMARY KEY,week integer, studentId integer UNIQUE ,studentName text , lateTimes integer ,absence integer , leave integer , later integer , arrive integer );",self.courseId]];
    
     _absenceSet = [[NSMutableSet alloc] init];
     _leaveSet = [[NSMutableSet alloc] init];
@@ -95,14 +88,18 @@
         for (id addobject in _normal ) {
             [studentArray addObject:addobject];
         }
-        
-        for (int i = 0; i < studentArray.count; i++) {
-            NSNumber *studentNo = [[studentArray objectAtIndex:i] valueForKey:@"studentNo"];
-            NSString *name = [[studentArray objectAtIndex:i] valueForKey:@"name"];
-            NSNumber *latetime = [[studentArray objectAtIndex:i] valueForKey:@"lateTimes"];
-            NSString *string = [NSString stringWithFormat:@"INSERT INTO class_%@ (studentId, studentName, lateTimes, absence ,leave, later,arrive) VALUES (%@, '%@' ,%@, 0, 0, 0,0)",self.courseId,studentNo,name,latetime];
-            [_db executeUpdate:string];
+        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM class_%@ WHERE week = %@;",self.courseId, self.weekOrdinal];
+        FMResultSet *set = [self.db executeQuery:sql];
+        if (!set.next) {
+            for (int i = 0; i < studentArray.count; i++) {
+                NSNumber *studentNo = [[studentArray objectAtIndex:i] valueForKey:@"studentNo"];
+                NSString *name = [[studentArray objectAtIndex:i] valueForKey:@"name"];
+                NSNumber *latetime = [[studentArray objectAtIndex:i] valueForKey:@"lateTimes"];
+                NSString *string = [NSString stringWithFormat:@"INSERT INTO class_%@ (week,studentId, studentName, lateTimes, absence ,leave, later,arrive) VALUES (%@,%@, '%@' ,%@, 0, 0, 0,0)",self.courseId,self.weekOrdinal,studentNo,name,latetime];
+                [_db executeUpdate:string];
+            }
         }
+        
         for (NSDictionary *dict in _recommend) {
             THStudent *student = [THStudent studentWithDic:dict];
             [_modelRec addObject:student];
@@ -113,6 +110,15 @@
         }
         [self addNameAndTitleOfClass];
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSString *sql2 = [NSString stringWithFormat:@"SELECT * FROM class_%@ WHERE week = %@ AND (arrive = 1 OR absence = 1 OR leave = 1 OR later = 1);",self.courseId,self.weekOrdinal];
+        FMResultSet *set2 = [self.db executeQuery:sql2];
+        if (set2.next) {
+            UIView *view = [[UIView alloc] init];
+            view.backgroundColor = XColor(0, 0, 0, 0.3);
+            view.frame = self.view.frame;
+            [self.view addSubview:view];
+        }
+
     }];
     
 }
