@@ -21,8 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    THClassTableViewController *main = [[THClassTableViewController alloc] init];
-    [self addchildVc:main title:@"课堂点名" image:@"class" selectedImage:@"class_select"];
+    THClassTableViewController *classtable = [[THClassTableViewController alloc] init];
+    [self addchildVc:classtable title:@"课堂点名" image:@"class" selectedImage:@"class_select"];
     THStatisticsViewController *statistics = [[THStatisticsViewController alloc] init];
     [self addchildVc:statistics title:@"统计成绩" image:@"statistics" selectedImage:@"statistics_select"];
     THSettingTableViewController *setting = [[THSettingTableViewController alloc] init];

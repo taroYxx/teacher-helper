@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface THDetailOfRollcallViewController : UIViewController
+@property (nonatomic , strong) NSNumber * courseId;
 
 @end

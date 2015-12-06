@@ -10,5 +10,6 @@
 
 @interface THClassTableViewController : UIViewController
 @property (nonatomic , strong) NSString * cookie;
-
+@property (nonatomic , strong) NSString * name;
+@property (nonatomic , strong) NSNumber * teacherNO;
 @end

@@ -19,17 +19,23 @@
 		500C68341C07045600C0E896 /* MBProgressHUD+YXX.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68331C07045600C0E896 /* MBProgressHUD+YXX.m */; };
 		500C68381C07378800C0E896 /* THClassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68371C07378800C0E896 /* THClassTableViewController.m */; };
 		500C683C1C0737AF00C0E896 /* THClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C683B1C0737AF00C0E896 /* THClass.m */; };
+		50297C0D1C12CECC0014C69D /* THdetailStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 50297C0C1C12CECC0014C69D /* THdetailStudent.m */; };
+		503675671C0880740005B0DF /* THAddStudentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 503675661C0880740005B0DF /* THAddStudentTool.m */; };
 		504227061C06A4DB0059E94D /* THRollCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504227051C06A4DB0059E94D /* THRollCallViewController.m */; };
 		5042270D1C06AB690059E94D /* THDetailOfRollcallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5042270C1C06AB690059E94D /* THDetailOfRollcallViewController.m */; };
 		504227111C06ABE60059E94D /* THFillCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504227101C06ABE60059E94D /* THFillCheckViewController.m */; };
 		504AC71D1C05B1EF00FF23AF /* THTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AC71C1C05B1EF00FF23AF /* THTabbarViewController.m */; };
 		504AC7211C05B27600FF23AF /* THStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AC7201C05B27600FF23AF /* THStatisticsViewController.m */; };
+		505FEFF81C102AF800290A9B /* THTotalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505FEFF71C102AF800290A9B /* THTotalViewController.m */; };
+		505FEFFB1C1032AE00290A9B /* THHomeworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505FEFFA1C1032AE00290A9B /* THHomeworkViewController.m */; };
+		505FEFFF1C105B2200290A9B /* THtotal.m in Sources */ = {isa = PBXBuildFile; fileRef = 505FEFFE1C105B2200290A9B /* THtotal.m */; };
 		507ECECE1C017F7400F32D47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECECD1C017F7400F32D47 /* main.m */; };
 		507ECED11C017F7400F32D47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECED01C017F7400F32D47 /* AppDelegate.m */; };
 		507ECED91C017F7400F32D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507ECED81C017F7400F32D47 /* Assets.xcassets */; };
 		507ECEDC1C017F7400F32D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507ECEDA1C017F7400F32D47 /* LaunchScreen.storyboard */; };
 		507ECEE71C017F7400F32D47 /* THTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECEE61C017F7400F32D47 /* THTests.m */; };
 		507ECEF21C017F7400F32D47 /* THUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECEF11C017F7400F32D47 /* THUITests.m */; };
+		50819A0D1C083F670091A6DC /* THStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 50819A0C1C083F670091A6DC /* THStudent.m */; };
 		7310ED36B314379D3EB6F144 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6748B2A5D4FDABED4E797A2E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +82,10 @@
 		500C68371C07378800C0E896 /* THClassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THClassTableViewController.m; sourceTree = "<group>"; };
 		500C683A1C0737AF00C0E896 /* THClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THClass.h; sourceTree = "<group>"; };
 		500C683B1C0737AF00C0E896 /* THClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THClass.m; sourceTree = "<group>"; };
+		50297C0B1C12CECC0014C69D /* THdetailStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THdetailStudent.h; sourceTree = "<group>"; };
+		50297C0C1C12CECC0014C69D /* THdetailStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THdetailStudent.m; sourceTree = "<group>"; };
+		503675651C0880740005B0DF /* THAddStudentTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAddStudentTool.h; sourceTree = "<group>"; };
+		503675661C0880740005B0DF /* THAddStudentTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAddStudentTool.m; sourceTree = "<group>"; };
 		504227041C06A4DB0059E94D /* THRollCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THRollCallViewController.h; sourceTree = "<group>"; };
 		504227051C06A4DB0059E94D /* THRollCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THRollCallViewController.m; sourceTree = "<group>"; };
 		5042270B1C06AB690059E94D /* THDetailOfRollcallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THDetailOfRollcallViewController.h; sourceTree = "<group>"; };
@@ -86,6 +96,12 @@
 		504AC71C1C05B1EF00FF23AF /* THTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTabbarViewController.m; sourceTree = "<group>"; };
 		504AC71F1C05B27600FF23AF /* THStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THStatisticsViewController.h; sourceTree = "<group>"; };
 		504AC7201C05B27600FF23AF /* THStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THStatisticsViewController.m; sourceTree = "<group>"; };
+		505FEFF61C102AF800290A9B /* THTotalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTotalViewController.h; sourceTree = "<group>"; };
+		505FEFF71C102AF800290A9B /* THTotalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTotalViewController.m; sourceTree = "<group>"; };
+		505FEFF91C1032AE00290A9B /* THHomeworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THHomeworkViewController.h; sourceTree = "<group>"; };
+		505FEFFA1C1032AE00290A9B /* THHomeworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THHomeworkViewController.m; sourceTree = "<group>"; };
+		505FEFFD1C105B2200290A9B /* THtotal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THtotal.h; sourceTree = "<group>"; };
+		505FEFFE1C105B2200290A9B /* THtotal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THtotal.m; sourceTree = "<group>"; };
 		507ECEC91C017F7400F32D47 /* TH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		507ECECD1C017F7400F32D47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		507ECECF1C017F7400F32D47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -100,6 +116,9 @@
 		507ECEF11C017F7400F32D47 /* THUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUITests.m; sourceTree = "<group>"; };
 		507ECEF31C017F7400F32D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507ECF051C01833700F32D47 /* TH-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TH-PrefixHeader.pch"; sourceTree = "<group>"; };
+		50819A0B1C083F670091A6DC /* THStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THStudent.h; sourceTree = "<group>"; };
+		50819A0C1C083F670091A6DC /* THStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THStudent.m; sourceTree = "<group>"; };
+		508FE5061C0AAE50002533E9 /* THFillcheckDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFillcheckDelegate.h; sourceTree = "<group>"; };
 		62218BB5DC3CAE8A832014A5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6748B2A5D4FDABED4E797A2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -256,9 +275,20 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		503675641C0880190005B0DF /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				503675651C0880740005B0DF /* THAddStudentTool.h */,
+				503675661C0880740005B0DF /* THAddStudentTool.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
 		504227031C06A4A20059E94D /* rollcall */ = {
 			isa = PBXGroup;
 			children = (
+				503675641C0880190005B0DF /* tool */,
+				50819A0A1C083F540091A6DC /* model */,
 				504227041C06A4DB0059E94D /* THRollCallViewController.h */,
 				504227051C06A4DB0059E94D /* THRollCallViewController.m */,
 			);
@@ -270,6 +300,8 @@
 			children = (
 				5042270B1C06AB690059E94D /* THDetailOfRollcallViewController.h */,
 				5042270C1C06AB690059E94D /* THDetailOfRollcallViewController.m */,
+				50297C0B1C12CECC0014C69D /* THdetailStudent.h */,
+				50297C0C1C12CECC0014C69D /* THdetailStudent.m */,
 			);
 			path = detail;
 			sourceTree = "<group>";
@@ -279,6 +311,7 @@
 			children = (
 				5042270F1C06ABE60059E94D /* THFillCheckViewController.h */,
 				504227101C06ABE60059E94D /* THFillCheckViewController.m */,
+				508FE5061C0AAE50002533E9 /* THFillcheckDelegate.h */,
 			);
 			path = fillcheck;
 			sourceTree = "<group>";
@@ -295,10 +328,21 @@
 		504AC71E1C05B24C00FF23AF /* statistics */ = {
 			isa = PBXGroup;
 			children = (
+				50B0B53D1C0AE6D900AC579C /* homework */,
+				50B0B53E1C0AE6D900AC579C /* total */,
 				504AC71F1C05B27600FF23AF /* THStatisticsViewController.h */,
 				504AC7201C05B27600FF23AF /* THStatisticsViewController.m */,
 			);
 			path = statistics;
+			sourceTree = "<group>";
+		};
+		505FEFFC1C105B0600290A9B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				505FEFFD1C105B2200290A9B /* THtotal.h */,
+				505FEFFE1C105B2200290A9B /* THtotal.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		507ECEC01C017F7400F32D47 = {
@@ -386,6 +430,34 @@
 				507ECF051C01833700F32D47 /* TH-PrefixHeader.pch */,
 			);
 			path = other;
+			sourceTree = "<group>";
+		};
+		50819A0A1C083F540091A6DC /* model */ = {
+			isa = PBXGroup;
+			children = (
+				50819A0B1C083F670091A6DC /* THStudent.h */,
+				50819A0C1C083F670091A6DC /* THStudent.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		50B0B53D1C0AE6D900AC579C /* homework */ = {
+			isa = PBXGroup;
+			children = (
+				505FEFF91C1032AE00290A9B /* THHomeworkViewController.h */,
+				505FEFFA1C1032AE00290A9B /* THHomeworkViewController.m */,
+			);
+			path = homework;
+			sourceTree = "<group>";
+		};
+		50B0B53E1C0AE6D900AC579C /* total */ = {
+			isa = PBXGroup;
+			children = (
+				505FEFFC1C105B0600290A9B /* model */,
+				505FEFF61C102AF800290A9B /* THTotalViewController.h */,
+				505FEFF71C102AF800290A9B /* THTotalViewController.m */,
+			);
+			path = total;
 			sourceTree = "<group>";
 		};
 		9CE0711C7FFFB043CE55D7A8 /* Frameworks */ = {
@@ -578,11 +650,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5042270D1C06AB690059E94D /* THDetailOfRollcallViewController.m in Sources */,
+				505FEFF81C102AF800290A9B /* THTotalViewController.m in Sources */,
 				504AC7211C05B27600FF23AF /* THStatisticsViewController.m in Sources */,
 				500C68281C06F6B700C0E896 /* THSetStaticViewController.m in Sources */,
+				50297C0D1C12CECC0014C69D /* THdetailStudent.m in Sources */,
+				505FEFFF1C105B2200290A9B /* THtotal.m in Sources */,
 				507ECED11C017F7400F32D47 /* AppDelegate.m in Sources */,
+				503675671C0880740005B0DF /* THAddStudentTool.m in Sources */,
 				500C68241C06F6B700C0E896 /* THSetAccountTableViewController.m in Sources */,
 				504227061C06A4DB0059E94D /* THRollCallViewController.m in Sources */,
+				50819A0D1C083F670091A6DC /* THStudent.m in Sources */,
 				500C68291C06F6B700C0E896 /* THSetSubAccountViewController.m in Sources */,
 				504227111C06ABE60059E94D /* THFillCheckViewController.m in Sources */,
 				500C68251C06F6B700C0E896 /* THSettingGroup.m in Sources */,
@@ -593,6 +670,7 @@
 				500C68341C07045600C0E896 /* MBProgressHUD+YXX.m in Sources */,
 				500C68311C07040F00C0E896 /* THLoginViewController.m in Sources */,
 				500C68381C07378800C0E896 /* THClassTableViewController.m in Sources */,
+				505FEFFB1C1032AE00290A9B /* THHomeworkViewController.m in Sources */,
 				507ECECE1C017F7400F32D47 /* main.m in Sources */,
 				500C68271C06F6B700C0E896 /* THSetNoticeViewController.m in Sources */,
 				500C68261C06F6B700C0E896 /* THSettingItem.m in Sources */,

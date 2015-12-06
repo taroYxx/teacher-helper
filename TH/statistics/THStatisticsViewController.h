@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface THStatisticsViewController : UIViewController
+@property (nonatomic , strong) NSArray * classList;
 
 @end

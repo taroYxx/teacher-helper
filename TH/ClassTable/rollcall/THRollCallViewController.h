@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface THRollCallViewController : UIViewController
+@property (nonatomic , copy) NSString * cookie;
+@property (nonatomic , strong) NSNumber * courseId;
+@property (nonatomic , strong) NSNumber * weekOrdinal;
 
 @end

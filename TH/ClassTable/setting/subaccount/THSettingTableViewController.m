@@ -15,6 +15,7 @@
 #import "THSetSubAccountViewController.h"
 
 
+
 @interface THSettingTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic , strong) NSMutableArray * groups;
 
@@ -43,15 +44,15 @@
     [self setGroup1];
     [self setGroup2];
     [self setgroup3];
-    
 
 }
 
 - (void)setGroup1{
     THSettingGroup *group = [[THSettingGroup alloc] init];
     group.headerTitle = @"个人设置";
-    THSettingItem *item = [THSettingItem itemWithTitle:@"个人账号"];
-    item.nextController = [[THSetAccountTableViewController alloc] init];
+    THSettingItem *item = [THSettingItem itemWithTitle:[NSString stringWithFormat:@"%@    %@",self.name,self.teacherNO]];
+//    item.nextController = [[THSetAccountTableViewController alloc] init];
+    item.iconImage = [UIImage imageNamed:@"acount"];
     group.items = @[item];
     [self.groups addObject:group];
     
@@ -67,6 +68,10 @@
     item.nextController = [[THSetNoticeViewController alloc] init];
     item1.nextController = [[THSetSubAccountViewController alloc] init];
     item2.nextController = [[THSetStaticViewController alloc] init];
+    item.iconImage = [UIImage imageNamed:@"msg"];
+    item1.iconImage = [UIImage imageNamed:@"assistant"];
+    item2.iconImage = [UIImage imageNamed:@"per"];
+    
     group.items = @[item,item1,item2];
     [self.groups addObject:group];
 }
@@ -79,6 +84,10 @@
     THSettingItem *item = [THSettingItem itemWithTitle:@"评分"];
     THSettingItem *item1 = [THSettingItem itemWithTitle:@"关于"];
     THSettingItem *item2 = [THSettingItem itemWithTitle:@"分享"];
+    item.iconImage = [UIImage imageNamed:@"mark"];
+    item1.iconImage = [UIImage imageNamed:@"about"];
+    item2.iconImage = [UIImage imageNamed:@"share"];
+    
     group.items = @[item,item1,item2];
     [self.groups addObject:group];
     
@@ -104,6 +113,7 @@
     THSettingGroup *group =self.groups[indexPath.section];
     THSettingItem *item = group.items[indexPath.row];
     cell.textLabel.text = item.title;
+    cell.imageView.image = item.iconImage;
     
     
     
@@ -113,7 +123,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     THSettingGroup *group = self.groups[indexPath.section];
     THSettingItem *item = group.items[indexPath.row];
-    [self.navigationController pushViewController:item.nextController animated:YES];
+    if(item.nextController){
+    [self.navigationController pushViewController:item.nextController animated:YES];}
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"返回";
+    [self.navigationController.navigationBar setTintColor:XColor(209, 84, 87, 1)];
+    self.navigationItem.backBarButtonItem = backItem;
     
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

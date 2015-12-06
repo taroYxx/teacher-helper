@@ -15,6 +15,7 @@
 
 
 
+
 @interface THLoginViewController ()<UITextFieldDelegate>
 @property (nonatomic , weak) UITextField *username;
 @property (nonatomic , weak) UITextField *password;
@@ -91,11 +92,6 @@
 //    NSMutableData *postBody = [NSMutableData data];
 //    [postBody ]
     
-    
-    
-    
-    
-    
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     NSDictionary* bodyParameters = @{
                                      @"username":self.username.text,
@@ -103,11 +99,12 @@
 
                                      };
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-     NSString *urlStr = [NSString stringWithFormat:@"http://%@/%@/teacher_login/",host,version];
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@/teacher_login/",host,version];
     [manager POST:urlStr parameters:bodyParameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         THLog(@"%@",responseObject);
         THLog(@"%@",[operation.response allHeaderFields][@"set-Cookie"]);
         NSNumber *status = responseObject[@"status"];
+        
         if (status.intValue == 1) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -116,7 +113,8 @@
             UINavigationController *nav = [tab.viewControllers objectAtIndex:0];
             main = [nav.viewControllers objectAtIndex:0];
             main.cookie = [operation.response allHeaderFields][@"set-Cookie"];
-//            THLog(@"login%@",main.cookie);
+            main.name = responseObject[@"name"];
+            main.teacherNO = responseObject[@"teacherNo"];
             window.rootViewController = tab;
         }else if (status.intValue == 3){
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -133,7 +131,6 @@
             UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"系统信息" message:@"网络连接错误" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
             [alertView show];
         }
-//
         
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
         THLog(@"%@",error);
@@ -142,12 +139,6 @@
         [alertView show];
     }];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//        THTabbarViewController *tab = [[THTabbarViewController alloc] init];
-//        window.rootViewController = tab;
-//    });
 }
 
 - (void)keyboardStartMove:(NSNotification *)note{
