@@ -25,6 +25,7 @@
 @property (nonatomic , strong) NSMutableArray * everyWeek;
 @property (nonatomic , strong) NSMutableDictionary * day;
 @property (nonatomic , strong) NSMutableArray * allday;
+@property (nonatomic , strong) NSNumber * weekOrdinal;
 
 @end
 
@@ -45,6 +46,14 @@
     setting.name = self.name;
     setting.teacherNO = self.teacherNO;
     [self getClassTable:^(NSArray *array) {
+        if (array) {
+//             THLog(@"week%@",[array objectAtIndex:0][@"weekOrdinal"]);
+            self.weekOrdinal = [array objectAtIndex:0][@"weekOrdinal"];
+            
+        }
+       
+        
+        
         //星期判断
         NSArray *result = array;
         NSMutableArray *total = [[NSMutableArray alloc] init];
@@ -186,7 +195,7 @@
 //            
 //        }
 //    }
-    THLog(@"%@",_allday);
+
     if (section == 0) {
         for (int i = 0; i < 7; i++) {
             if (tableView.tag == i) {
@@ -247,9 +256,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(16, 11.8, screenW/2, 22)];
-        name.font = [UIFont systemFontOfSize:16];
-        [cell addSubview:name];
+        cell.textLabel.frame = CGRectMake(16, 11.8, screenW/2, 22);
+        cell.textLabel.font = [UIFont systemFontOfSize:16];
+//        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(16, 11.8, screenW/2, 22)];
+//        name.font = [UIFont systemFontOfSize:16];
+//        [cell addSubview:name];
         UILabel *timeOfClass = [[UILabel alloc] initWithFrame:CGRectMake(16, 40.6, 50, 20)];
         timeOfClass.font = [UIFont systemFontOfSize:13.8];
         timeOfClass.adjustsFontSizeToFitWidth = YES;
@@ -266,15 +277,18 @@
                 if (indexPath.section == 0) {
                     NSArray *array = classOfDay[@"morning"];
                     THClass *class = array[indexPath.row];
-                    name.text = class.courseName;
+//                    name.text = class.courseName;
                     cell.tag = [class.courseId integerValue];
+                    cell.textLabel.text = class.courseName;
+                    
                     timeOfClass.text =[NSString stringWithFormat:@"%@节",class.lessonPeriod];
                     location.text = class.venue;
                 }
                 else if (indexPath.section == 1) {
                     NSArray *array = classOfDay[@"afternoon"];
                    THClass *class = array[indexPath.row];
-                    name.text = class.courseName;
+//                    name.text = class.courseName;
+                    cell.textLabel.text = class.courseName;
                     cell.tag = [class.courseId integerValue];
                     timeOfClass.text = [NSString stringWithFormat:@"%@节",class.lessonPeriod];
                     location.text = class.venue;
@@ -282,7 +296,8 @@
                 else if (indexPath.section == 2){
                     NSArray *array = classOfDay[@"evening"];
                     THClass *class = array[indexPath.row];
-                    name.text = class.courseName;
+//                    name.text = class.courseName;
+                    cell.textLabel.text = class.courseName;
                     timeOfClass.text = [NSString stringWithFormat:@"%@节",class.lessonPeriod];
                     location.text = class.venue;
                     cell.tag = [class.courseId integerValue];
@@ -298,8 +313,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     THRollCallViewController *rollcall = [[THRollCallViewController alloc] init];
     rollcall.cookie = _cookie;
-//    rollcall.courseId = @5;
-    rollcall.weekOrdinal = @10;
+    rollcall.weekOrdinal = self.weekOrdinal;
     [self.navigationController pushViewController:rollcall animated:YES];
   //设置返回按钮
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
@@ -307,6 +321,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     THLog(@"%ld",cell.tag);
     rollcall.courseId = [[NSNumber alloc] initWithInteger:cell.tag];
+    rollcall.Navtitle = cell.textLabel.text;
     [self.navigationController.navigationBar setTintColor:XColor(209, 84, 87, 1)];
     self.navigationItem.backBarButtonItem = backItem;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

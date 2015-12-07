@@ -21,6 +21,7 @@
 		500C683C1C0737AF00C0E896 /* THClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C683B1C0737AF00C0E896 /* THClass.m */; };
 		50297C0D1C12CECC0014C69D /* THdetailStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 50297C0C1C12CECC0014C69D /* THdetailStudent.m */; };
 		503675671C0880740005B0DF /* THAddStudentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 503675661C0880740005B0DF /* THAddStudentTool.m */; };
+		503ED3E51C159E8000E1FEB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503ED3E41C159E8000E1FEB2 /* Images.xcassets */; };
 		504227061C06A4DB0059E94D /* THRollCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504227051C06A4DB0059E94D /* THRollCallViewController.m */; };
 		5042270D1C06AB690059E94D /* THDetailOfRollcallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5042270C1C06AB690059E94D /* THDetailOfRollcallViewController.m */; };
 		504227111C06ABE60059E94D /* THFillCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504227101C06ABE60059E94D /* THFillCheckViewController.m */; };
@@ -86,6 +87,7 @@
 		50297C0C1C12CECC0014C69D /* THdetailStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THdetailStudent.m; sourceTree = "<group>"; };
 		503675651C0880740005B0DF /* THAddStudentTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAddStudentTool.h; sourceTree = "<group>"; };
 		503675661C0880740005B0DF /* THAddStudentTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAddStudentTool.m; sourceTree = "<group>"; };
+		503ED3E41C159E8000E1FEB2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		504227041C06A4DB0059E94D /* THRollCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THRollCallViewController.h; sourceTree = "<group>"; };
 		504227051C06A4DB0059E94D /* THRollCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THRollCallViewController.m; sourceTree = "<group>"; };
 		5042270B1C06AB690059E94D /* THDetailOfRollcallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THDetailOfRollcallViewController.h; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				507ECED81C017F7400F32D47 /* Assets.xcassets */,
 				507ECEDA1C017F7400F32D47 /* LaunchScreen.storyboard */,
 				507ECEDD1C017F7400F32D47 /* Info.plist */,
+				503ED3E41C159E8000E1FEB2 /* Images.xcassets */,
 				507ECECC1C017F7400F32D47 /* Supporting Files */,
 			);
 			path = TH;
@@ -575,6 +578,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503ED3E51C159E8000E1FEB2 /* Images.xcassets in Resources */,
 				507ECEDC1C017F7400F32D47 /* LaunchScreen.storyboard in Resources */,
 				507ECED91C017F7400F32D47 /* Assets.xcassets in Resources */,
 			);
@@ -756,7 +760,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -794,7 +798,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

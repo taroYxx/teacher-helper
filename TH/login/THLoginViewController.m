@@ -30,7 +30,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    UIImage *iconimage = [UIImage imageNamed:@"icon"];
+    UIImage *iconimage = [UIImage imageNamed:@"HDUIcon2-1"];
     
     UIImageView *icon = [[UIImageView alloc] initWithImage:iconimage];
     icon.frame = CGRectMake((screenW-screenH/3)/2, 20, screenH/3, screenH/3);
@@ -59,7 +59,7 @@
     UIButton *loginbtn = [[UIButton alloc] init];
     [loginbtn setTitle:@"登入" forState:UIControlStateNormal];
     loginbtn.translatesAutoresizingMaskIntoConstraints = NO;
-    loginbtn.backgroundColor = XColor(64, 185, 216, 1);
+    loginbtn.backgroundColor = XColor(207, 85, 89, 1);
     [loginbtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginbtn];
     loginbtn.enabled = YES;

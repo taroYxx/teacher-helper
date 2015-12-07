@@ -168,7 +168,6 @@
     [manager POST:@"http://115.29.50.42/demo/special_offer/" parameters:requestData success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         NSMutableArray *array = responseObject[@"class"];
-        
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             if (success) {
                 success(array);

@@ -15,7 +15,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 
 
-@interface THTotalViewController ()<XYPieChartDataSource,XYPieChartDelegate>
+@interface THTotalViewController ()<XYPieChartDataSource,XYPieChartDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic , weak) UISegmentedControl* segment;
 @property (nonatomic , strong) THHomeworkViewController * homework;
 
@@ -29,7 +29,13 @@
 @property (nonatomic , strong) NSNumber * leaveProportion;
 @property (nonatomic , strong) NSNumber * appearProportion;
 
-@property (nonatomic , strong) NSArray * studentArray;
+@property (nonatomic , strong) NSArray * tableViewData;
+@property (nonatomic , strong) NSArray * selectArray;
+
+
+@property (nonatomic , weak) UITableView * tableview;
+
+
 @property (nonatomic , strong) NSMutableArray * studentModel;
 
 
@@ -43,21 +49,40 @@
     [MBProgressHUD showMessage:@"加载中" toView:self.view];
     self.view.backgroundColor = [UIColor whiteColor];
     [self addview];
-    self.studentArray = [NSArray array];
     self.studentModel = [NSMutableArray array];
+    self.tableViewData = [NSArray array];
+    self.selectArray = [NSArray array];
     [self getDataFromServe:^(NSDictionary *dictionary) {
         THLog(@"%@",dictionary);
         self.absenceProportion = dictionary[@"absenceProportion"];
         self.lateProportion = dictionary[@"lateProportion"];
         self.appearProportion = dictionary[@"appearProportion"];
         self.leaveProportion = dictionary[@"leaveProportion"];
-        self.studentArray = dictionary[@"history"];
-        for (NSDictionary *dict in self.studentArray) {
-            THtotal *total = [THtotal totalWithDic:dict];
-            [_studentModel addObject:total];
+        NSArray *studentArray = dictionary[@"history"][@"all"];
+        NSArray *absenceArray = dictionary[@"history"][@"absence"];
+        NSArray *lateArray = dictionary[@"history"][@"late"];
+        NSArray *leaveArray = dictionary[@"history"][@"leave"];
+        NSArray *totalData = @[studentArray,absenceArray,leaveArray,lateArray];
+        
+        NSMutableArray *allmodel = [NSMutableArray array];
+        NSMutableArray *absencemodel = [NSMutableArray array];
+        NSMutableArray *leavemodel = [NSMutableArray array];
+        NSMutableArray *latemodel = [NSMutableArray array];
+        NSArray *totalmodel = @[allmodel,absencemodel,leavemodel,latemodel];
+        for (int i = 0;i < totalData.count ; i++) {
+            NSArray *array = [totalData objectAtIndex:i];
+            NSMutableArray *model = [totalmodel objectAtIndex:i];
+            for (NSDictionary *dict in array) {
+                THtotal *total = [THtotal totalWithDic:dict];
+                [model addObject:total];
+            }
         }
+        _tableViewData = totalmodel;
+        _selectArray = totalmodel[0];
         [self addXYchart];
+        [self addtableview];
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
     }];
     
 }
@@ -92,7 +117,7 @@
     self.piechart.dataSource = self;
     self.piechart.delegate = self;
     _slice = [NSArray arrayWithObjects:_absenceProportion,_leaveProportion,_lateProportion,_appearProportion,nil];
-    _nameOfSlice = @[@"缺席",@"迟到",@"请假",@"已到"];
+    _nameOfSlice = @[@"总体",@"缺勤",@"请假",@"迟到"];
     [self.piechart setStartPieAngle:M_PI];
     [self.piechart setAnimationSpeed:1.0];
     [self.piechart setPieCenter:CGPointMake(screenW/2, (screenH/2-64-43)/2+108)];
@@ -109,7 +134,7 @@
     [self.view addSubview:self.piechart];
     
     
-    NSArray *bgViewName = @[@"re",@"yel",@"blu",@"gre"];
+    NSArray *bgViewName = @[@"gre",@"re",@"blu",@"yel"];
     
     for (int i = 0; i < 4; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -119,41 +144,57 @@
         [button setTitle:_nameOfSlice[i] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:18];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button.layer setMasksToBounds:YES];//设置按钮的圆角半径不会被遮挡
-        
-        [button.layer setCornerRadius:0];
-        
-        [button.layer setBorderWidth:1];//设置边界的宽度
-        
-        
-        
-        //设置按钮的边界颜色
-        
-        CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-        
-        CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){168/255,168/255,168/225,0.5});
-        
-        [button.layer setBorderColor:color];
+        [button addTarget:self action:@selector(changeTableViewDate:)forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         
         
         
         UIImageView *imageview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:bgViewName[i]]];
-        imageview.frame = CGRectMake(screenW/4 * 2/3+5, 13, 20, 20);
+        imageview.frame = CGRectMake(screenW/4 * 2/3+5, 13, 22, 22);
         [button addSubview:imageview];
         
         
         UILabel *lable = [[UILabel alloc] init];
-        lable.frame = CGRectMake(screenW/4 * 2/3+7, 0, screenW/4 * 1/3, 44);
-        lable.text = @"99";
+        lable.frame = CGRectMake(screenW/4 * 2/3+9, 0, screenW/4 * 1/3, 44);
+        NSArray *Arr = [self.tableViewData objectAtIndex:i];
+        lable.text = [NSString stringWithFormat:@"%ld",Arr.count];
         lable.font = [UIFont systemFontOfSize:12.0];
         lable.textColor = [UIColor whiteColor];
         [button addSubview:lable];
     }
     
 }
+- (void)changeTableViewDate:(UIButton *)button{
+    THLog(@"%ld",button.tag);
+    THLog(@"%@",[_tableViewData objectAtIndex:button.tag]);
+    _selectArray = [_tableViewData objectAtIndex:button.tag];
+    [self.tableview reloadData];
+}
 
-
+- (void)addtableview{
+    UITableView *tableView = [[UITableView alloc] init];
+    _tableview = tableView;
+    _tableview.delegate = self;
+    _tableview.dataSource = self;
+    _tableview.frame = CGRectMake(0, screenH/2+44, screenW, screenH/2-44);
+    [self.view addSubview:_tableview];
+    
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _selectArray.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *ID = [NSString stringWithFormat:@"cell%ld",indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        
+    }
+    THtotal *total = _selectArray[indexPath.row];
+    cell.textLabel.text = total.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",total.studentNo];
+    return cell;
+}
 
 
 - (void)didSelectSegment:(UISegmentedControl *)sender{

@@ -126,7 +126,7 @@
 
 - (void)addNameAndTitleOfClass{
     UILabel *titleOfClass = [[UILabel alloc] initWithFrame:CGRectMake(0, 64, screenW, 43)];
-    titleOfClass.text = @"应用与写作";
+    titleOfClass.text = self.Navtitle;
     [titleOfClass setTextAlignment:NSTextAlignmentCenter];
     titleOfClass.backgroundColor = XColor(228, 228, 228, 1);
     [self.view addSubview:titleOfClass];
@@ -194,6 +194,7 @@
             [_fillcheck setDelegate:self];
             _fillcheck.courseId = _courseId;
             _fillcheck.weekOrdinal = _weekOrdinal;
+
             _fillcheck.view.frame = CGRectMake(0, 64+43, screenW, screenH-64-43);
             [self.view addSubview:_fillcheck.view];
         }

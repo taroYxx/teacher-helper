@@ -12,5 +12,6 @@
 @property (nonatomic , copy) NSString * cookie;
 @property (nonatomic , strong) NSNumber * courseId;
 @property (nonatomic , strong) NSNumber * weekOrdinal;
+@property (nonatomic , copy) NSString * Navtitle;
 
 @end
