@@ -13,11 +13,13 @@
 #import "THtotal.h"
 #import "MBProgressHUD+YXX.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "THtotalTableViewCell.h"
 
 
 @interface THTotalViewController ()<XYPieChartDataSource,XYPieChartDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic , weak) UISegmentedControl* segment;
 @property (nonatomic , strong) THHomeworkViewController * homework;
+@property (nonatomic , weak) UICollectionView * collection;
 
 @property (nonatomic , strong) XYPieChart * piechart;
 @property (nonatomic , strong) NSArray * slice;
@@ -31,12 +33,13 @@
 
 @property (nonatomic , strong) NSArray * tableViewData;
 @property (nonatomic , strong) NSArray * selectArray;
-
-
 @property (nonatomic , weak) UITableView * tableview;
-
-
 @property (nonatomic , strong) NSMutableArray * studentModel;
+
+@property (nonatomic , assign) NSInteger btntag;
+
+
+
 
 
 
@@ -53,7 +56,6 @@
     self.tableViewData = [NSArray array];
     self.selectArray = [NSArray array];
     [self getDataFromServe:^(NSDictionary *dictionary) {
-        THLog(@"%@",dictionary);
         self.absenceProportion = dictionary[@"absenceProportion"];
         self.lateProportion = dictionary[@"lateProportion"];
         self.appearProportion = dictionary[@"appearProportion"];
@@ -84,6 +86,7 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
     }];
+
     
 }
 
@@ -166,7 +169,8 @@
 }
 - (void)changeTableViewDate:(UIButton *)button{
     THLog(@"%ld",button.tag);
-    THLog(@"%@",[_tableViewData objectAtIndex:button.tag]);
+    self.btntag = button.tag;
+//    THLog(@"%@",[_tableViewData objectAtIndex:button.tag]);
     _selectArray = [_tableViewData objectAtIndex:button.tag];
     [self.tableview reloadData];
 }
@@ -177,6 +181,7 @@
     _tableview.delegate = self;
     _tableview.dataSource = self;
     _tableview.frame = CGRectMake(0, screenH/2+44, screenW, screenH/2-44);
+    self.tableview.allowsSelection = NO;
     [self.view addSubview:_tableview];
     
 }
@@ -185,14 +190,32 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *ID = [NSString stringWithFormat:@"cell%ld",indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (self.btntag == 0) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        THtotal *total = _selectArray[indexPath.row];
+        cell.textLabel.text = total.name;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",total.studentNo];
+        
+        return cell;
+    }
+  
+    THtotalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell = [[THtotalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        
         
     }
+    
     THtotal *total = _selectArray[indexPath.row];
-    cell.textLabel.text = total.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",total.studentNo];
+    NSArray *array = @[total.absenceArray,total.absenceArray,total.leaveArray,total.lateArray];
+    cell.selectarray = [array objectAtIndex:self.btntag];
+    [cell.collectionView reloadData];
+    cell.studentName.text = total.name;
+    cell.studentId.text = [NSString stringWithFormat:@"%@",total.studentNo];
+    cell.latetime.text = [NSString stringWithFormat:@"次数%@",total.late];
+    cell.latetime.textAlignment = NSTextAlignmentCenter;
+//    cell.textLabel.text = total.name;
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",total.studentNo];
     return cell;
 }
 
@@ -206,12 +229,11 @@
         if (!_homework)
         {
             _homework = [[THHomeworkViewController alloc] init];
+            _homework.courseId = self.courseId;
             _homework.view.frame = CGRectMake(0, 64+43, screenW, screenH-64-43);
             [self.view addSubview:_homework.view];
-            THLog(@"ads");
         }
             _homework.view.hidden = NO;
-           
         }
 }
 
@@ -223,7 +245,6 @@
                            };
      manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [manager POST:url parameters:body success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        THLog(@"%@",responseObject);
         NSDictionary *dict = responseObject;
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             if (success) {
@@ -237,40 +258,19 @@
 }
 
 - (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
-
 {
-    
-    
-    
     return self.slice.count;
-    
 }
-
-
-
 - (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
-
 {
-    
     return [[self.slice objectAtIndex:index] floatValue];
-    
 }
-
-
-
 - (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
-
 {
-    
     return [self.colorOfSlice objectAtIndex:(index % self.colorOfSlice.count)];
-    
 }
-
-
-
 - (NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index{
-    
     return [self.nameOfSlice objectAtIndex:index];
-    
 }
+
 @end

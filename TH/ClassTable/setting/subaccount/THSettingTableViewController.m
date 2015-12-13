@@ -10,9 +10,9 @@
 #import "THSettingItem.h"
 #import "THSettingGroup.h"
 #import "THSetNoticeViewController.h"
-#import "THSetAccountTableViewController.h"
 #import "THSetStaticViewController.h"
 #import "THSetSubAccountViewController.h"
+#import "THLoginViewController.h"
 
 
 
@@ -44,19 +44,27 @@
     [self setGroup1];
     [self setGroup2];
     [self setgroup3];
+    
+    UIBarButtonItem *logoff = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:UIBarButtonItemStyleDone target:self action:@selector(logOff)];
+    logoff.tintColor = XColor(208, 85, 90, 1);
+    self.navigationItem.rightBarButtonItem = logoff;
 
+}
+
+
+- (void)logOff{
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    THLoginViewController *login = [[THLoginViewController alloc] init];
+    window.rootViewController = login;
 }
 
 - (void)setGroup1{
     THSettingGroup *group = [[THSettingGroup alloc] init];
     group.headerTitle = @"个人设置";
     THSettingItem *item = [THSettingItem itemWithTitle:[NSString stringWithFormat:@"%@    %@",self.name,self.teacherNO]];
-//    item.nextController = [[THSetAccountTableViewController alloc] init];
     item.iconImage = [UIImage imageNamed:@"acount"];
     group.items = @[item];
     [self.groups addObject:group];
-    
-    
 }
 
 - (void)setGroup2{
@@ -83,12 +91,9 @@
     group.headerTitle = @"支持";
     THSettingItem *item = [THSettingItem itemWithTitle:@"评分"];
     THSettingItem *item1 = [THSettingItem itemWithTitle:@"关于"];
-    THSettingItem *item2 = [THSettingItem itemWithTitle:@"分享"];
     item.iconImage = [UIImage imageNamed:@"mark"];
     item1.iconImage = [UIImage imageNamed:@"about"];
-    item2.iconImage = [UIImage imageNamed:@"share"];
-    
-    group.items = @[item,item1,item2];
+    group.items = @[item,item1];
     [self.groups addObject:group];
     
 }

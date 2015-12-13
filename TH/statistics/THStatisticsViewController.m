@@ -21,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    THLog(@"%@",self.classList);
     [self dictToModel];
     [self addView];
     
@@ -40,9 +39,6 @@
     _tableView.backgroundColor = XColor(241, 241, 241, 1);
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
-       
-    
-    
 }
 
 - (void)dictToModel{
@@ -53,7 +49,9 @@
     }
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50.0;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.classList.count;
 }
@@ -64,7 +62,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 42,screenW , 2);
+        view.frame = CGRectMake(0, 48,screenW , 2);
         view.backgroundColor = XColor(108, 108, 108, 1);
         [cell addSubview:view];
         THClass *class = _model[indexPath.row];

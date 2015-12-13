@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface THHomeworkViewController : UIViewController
+@property (nonatomic , strong) NSNumber * courseId;
 
 @end

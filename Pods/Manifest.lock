@@ -25,9 +25,10 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
+  - IQKeyboardManager (3.3.4)
   - Masonry (0.6.3)
   - MBProgressHUD (0.9.1)
-  - MinugUtils (1.0.14):
+  - MinugUtils (1.0.16):
     - AFNetworking
     - Masonry
     - MBProgressHUD
@@ -35,6 +36,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (= 2.6.1)
   - FMDB
+  - IQKeyboardManager
   - Masonry
   - MBProgressHUD
   - MinugUtils
@@ -42,8 +44,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  IQKeyboardManager: ac803e61e5b50efae6b3aeedd95a02c7c7d3b2b3
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MinugUtils: 311b5fee0183eb4f98c81e8222d90f30d9f24abb
+  MinugUtils: e3c21f44efbcf09929b05d28669b19891cb67ae7
 
 COCOAPODS: 0.39.0

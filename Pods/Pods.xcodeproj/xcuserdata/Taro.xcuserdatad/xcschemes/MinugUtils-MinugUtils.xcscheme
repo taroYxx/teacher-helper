@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '022D7B1304F53E02AC47FE04'
+               BlueprintIdentifier = 'DCAA4B0AED2D7AE1886F940A'
                BlueprintName = 'MinugUtils-MinugUtils'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MinugUtils.bundle'>

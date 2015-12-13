@@ -24,6 +24,9 @@ static NSString *cacheDir ;
     if (![placeholder isEqual: [NSNull null]]) {
         self.image = placeholder;
     }
+    if ([url isEqual:[NSNull null]]) {
+        return;
+    }
     if ((!url)|| (!url.absoluteString.length) ) {
         return;
     }

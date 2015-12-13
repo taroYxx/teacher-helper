@@ -24,6 +24,7 @@
             return ;
         }else{
             id obj = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+            DLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
             success(obj);
         }
     }];
@@ -56,6 +57,7 @@
             failure(connectionError);
             return ;
         }
+        DLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         id json = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
         success(json);
     }];

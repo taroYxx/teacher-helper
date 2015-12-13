@@ -92,7 +92,7 @@
 
 -(void)btnDidTouch:(UIButton *)btn{
     self.currentBtn = btn;
-    self.selectNum = btn.tag;
+    _selectNum = btn.tag;
     if ([self.listDelegate respondsToSelector:@selector(topScrollViewBtnDidChange:)]) {
         [self.listDelegate topScrollViewBtnDidChange:(int)btn.tag ];
     }
@@ -157,7 +157,7 @@
 -(void)changeBtnWithNum:(int)number{
     self.currentBtn.selected = NO;
     UIButton *btn = self.btnArray[number];
-    self.selectNum = number;
+    _selectNum = number;
     self.currentBtn = btn;
     btn.selected = YES;
 }

@@ -83,14 +83,12 @@
 - (void)login{
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     [MBProgressHUD showMessage:@"正在登入" toView:self.view];
-   
-//    NSURL *url = [NSURL URLWithString:urlStr];
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//    [request setURL:url];
-//    [request setHTTPMethod:@"POST"];
-//    [request addValue:[NSString stringWithFormat:@"text/html"] forHTTPHeaderField:@"Content-Type"];
-//    NSMutableData *postBody = [NSMutableData data];
-//    [postBody ]
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"系统信息" message:@"网络连接错误,请重试" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+//        [alertView show];
+    });
     
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     NSDictionary* bodyParameters = @{
@@ -138,6 +136,7 @@
         UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"系统信息" message:@"网络连接错误" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
         [alertView show];
     }];
+   
     
 }
 

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5006713A1C1C008A000DD900 /* THtotalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 500671391C1C008A000DD900 /* THtotalTableViewCell.m */; };
 		500C680F1C06E77500C0E896 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C680E1C06E77500C0E896 /* XYPieChart.m */; };
-		500C68241C06F6B700C0E896 /* THSetAccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68131C06F6B700C0E896 /* THSetAccountTableViewController.m */; };
 		500C68251C06F6B700C0E896 /* THSettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68161C06F6B700C0E896 /* THSettingGroup.m */; };
 		500C68261C06F6B700C0E896 /* THSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68181C06F6B700C0E896 /* THSettingItem.m */; };
 		500C68271C06F6B700C0E896 /* THSetNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C681B1C06F6B700C0E896 /* THSetNoticeViewController.m */; };
@@ -20,6 +20,7 @@
 		500C68381C07378800C0E896 /* THClassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C68371C07378800C0E896 /* THClassTableViewController.m */; };
 		500C683C1C0737AF00C0E896 /* THClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 500C683B1C0737AF00C0E896 /* THClass.m */; };
 		50297C0D1C12CECC0014C69D /* THdetailStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 50297C0C1C12CECC0014C69D /* THdetailStudent.m */; };
+		50315E6D1C1D4EC20008B510 /* libUMessage_Sdk_1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50315E6B1C1D4EC20008B510 /* libUMessage_Sdk_1.2.1.a */; };
 		503675671C0880740005B0DF /* THAddStudentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 503675661C0880740005B0DF /* THAddStudentTool.m */; };
 		503ED3E51C159E8000E1FEB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503ED3E41C159E8000E1FEB2 /* Images.xcassets */; };
 		504227061C06A4DB0059E94D /* THRollCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504227051C06A4DB0059E94D /* THRollCallViewController.m */; };
@@ -37,6 +38,7 @@
 		507ECEE71C017F7400F32D47 /* THTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECEE61C017F7400F32D47 /* THTests.m */; };
 		507ECEF21C017F7400F32D47 /* THUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ECEF11C017F7400F32D47 /* THUITests.m */; };
 		50819A0D1C083F670091A6DC /* THStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 50819A0C1C083F670091A6DC /* THStudent.m */; };
+		50F8DFDE1C17AEA10022F438 /* THscores.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8DFDD1C17AEA10022F438 /* THscores.m */; };
 		7310ED36B314379D3EB6F144 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6748B2A5D4FDABED4E797A2E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,10 +61,10 @@
 
 /* Begin PBXFileReference section */
 		0B5F5B02F6BB0E4A9DB3068E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		500671381C1C008A000DD900 /* THtotalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THtotalTableViewCell.h; sourceTree = "<group>"; };
+		500671391C1C008A000DD900 /* THtotalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THtotalTableViewCell.m; sourceTree = "<group>"; };
 		500C680D1C06E77500C0E896 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
 		500C680E1C06E77500C0E896 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
-		500C68121C06F6B700C0E896 /* THSetAccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSetAccountTableViewController.h; sourceTree = "<group>"; };
-		500C68131C06F6B700C0E896 /* THSetAccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSetAccountTableViewController.m; sourceTree = "<group>"; };
 		500C68151C06F6B700C0E896 /* THSettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSettingGroup.h; sourceTree = "<group>"; };
 		500C68161C06F6B700C0E896 /* THSettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSettingGroup.m; sourceTree = "<group>"; };
 		500C68171C06F6B700C0E896 /* THSettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSettingItem.h; sourceTree = "<group>"; };
@@ -85,6 +87,8 @@
 		500C683B1C0737AF00C0E896 /* THClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THClass.m; sourceTree = "<group>"; };
 		50297C0B1C12CECC0014C69D /* THdetailStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THdetailStudent.h; sourceTree = "<group>"; };
 		50297C0C1C12CECC0014C69D /* THdetailStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THdetailStudent.m; sourceTree = "<group>"; };
+		50315E6B1C1D4EC20008B510 /* libUMessage_Sdk_1.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.2.1.a; sourceTree = "<group>"; };
+		50315E6C1C1D4EC20008B510 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		503675651C0880740005B0DF /* THAddStudentTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAddStudentTool.h; sourceTree = "<group>"; };
 		503675661C0880740005B0DF /* THAddStudentTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAddStudentTool.m; sourceTree = "<group>"; };
 		503ED3E41C159E8000E1FEB2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 		50819A0B1C083F670091A6DC /* THStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THStudent.h; sourceTree = "<group>"; };
 		50819A0C1C083F670091A6DC /* THStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THStudent.m; sourceTree = "<group>"; };
 		508FE5061C0AAE50002533E9 /* THFillcheckDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFillcheckDelegate.h; sourceTree = "<group>"; };
+		50F8DFDC1C17AEA10022F438 /* THscores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THscores.h; sourceTree = "<group>"; };
+		50F8DFDD1C17AEA10022F438 /* THscores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THscores.m; sourceTree = "<group>"; };
 		62218BB5DC3CAE8A832014A5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6748B2A5D4FDABED4E797A2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7310ED36B314379D3EB6F144 /* libPods.a in Frameworks */,
+				50315E6D1C1D4EC20008B510 /* libUMessage_Sdk_1.2.1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +165,15 @@
 				0B5F5B02F6BB0E4A9DB3068E /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		500671371C1C0072000DD900 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				500671381C1C008A000DD900 /* THtotalTableViewCell.h */,
+				500671391C1C008A000DD900 /* THtotalTableViewCell.m */,
+			);
+			path = tool;
 			sourceTree = "<group>";
 		};
 		500C680A1C06E76200C0E896 /* lib */ = {
@@ -192,7 +208,6 @@
 			children = (
 				500C682B1C06F81B00C0E896 /* THSettingTableViewController.h */,
 				500C682C1C06F81B00C0E896 /* THSettingTableViewController.m */,
-				500C68111C06F6B700C0E896 /* account */,
 				500C68141C06F6B700C0E896 /* model */,
 				500C68191C06F6B700C0E896 /* notice */,
 				500C681C1C06F6B700C0E896 /* Static */,
@@ -200,15 +215,6 @@
 			);
 			name = setting;
 			path = ClassTable/setting;
-			sourceTree = "<group>";
-		};
-		500C68111C06F6B700C0E896 /* account */ = {
-			isa = PBXGroup;
-			children = (
-				500C68121C06F6B700C0E896 /* THSetAccountTableViewController.h */,
-				500C68131C06F6B700C0E896 /* THSetAccountTableViewController.m */,
-			);
-			path = account;
 			sourceTree = "<group>";
 		};
 		500C68141C06F6B700C0E896 /* model */ = {
@@ -275,6 +281,15 @@
 				500C683B1C0737AF00C0E896 /* THClass.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		50315E6A1C1D4EC20008B510 /* UMessage_Sdk_1.2.1 */ = {
+			isa = PBXGroup;
+			children = (
+				50315E6B1C1D4EC20008B510 /* libUMessage_Sdk_1.2.1.a */,
+				50315E6C1C1D4EC20008B510 /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.2.1;
 			sourceTree = "<group>";
 		};
 		503675641C0880190005B0DF /* tool */ = {
@@ -372,6 +387,7 @@
 		507ECECB1C017F7400F32D47 /* TH */ = {
 			isa = PBXGroup;
 			children = (
+				50315E6A1C1D4EC20008B510 /* UMessage_Sdk_1.2.1 */,
 				500C682E1C07040F00C0E896 /* login */,
 				500C68101C06F6B700C0E896 /* setting */,
 				500C680A1C06E76200C0E896 /* lib */,
@@ -447,6 +463,7 @@
 		50B0B53D1C0AE6D900AC579C /* homework */ = {
 			isa = PBXGroup;
 			children = (
+				50F8DFDB1C17AE8B0022F438 /* model */,
 				505FEFF91C1032AE00290A9B /* THHomeworkViewController.h */,
 				505FEFFA1C1032AE00290A9B /* THHomeworkViewController.m */,
 			);
@@ -456,11 +473,21 @@
 		50B0B53E1C0AE6D900AC579C /* total */ = {
 			isa = PBXGroup;
 			children = (
+				500671371C1C0072000DD900 /* tool */,
 				505FEFFC1C105B0600290A9B /* model */,
 				505FEFF61C102AF800290A9B /* THTotalViewController.h */,
 				505FEFF71C102AF800290A9B /* THTotalViewController.m */,
 			);
 			path = total;
+			sourceTree = "<group>";
+		};
+		50F8DFDB1C17AE8B0022F438 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				50F8DFDC1C17AEA10022F438 /* THscores.h */,
+				50F8DFDD1C17AEA10022F438 /* THscores.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		9CE0711C7FFFB043CE55D7A8 /* Frameworks */ = {
@@ -541,7 +568,15 @@
 				TargetAttributes = {
 					507ECEC81C017F7400F32D47 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = Y7WKQP5SCN;
+						DevelopmentTeam = N85MR7EVWF;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					507ECEE11C017F7400F32D47 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -661,7 +696,6 @@
 				505FEFFF1C105B2200290A9B /* THtotal.m in Sources */,
 				507ECED11C017F7400F32D47 /* AppDelegate.m in Sources */,
 				503675671C0880740005B0DF /* THAddStudentTool.m in Sources */,
-				500C68241C06F6B700C0E896 /* THSetAccountTableViewController.m in Sources */,
 				504227061C06A4DB0059E94D /* THRollCallViewController.m in Sources */,
 				50819A0D1C083F670091A6DC /* THStudent.m in Sources */,
 				500C68291C06F6B700C0E896 /* THSetSubAccountViewController.m in Sources */,
@@ -671,6 +705,8 @@
 				500C682D1C06F81B00C0E896 /* THSettingTableViewController.m in Sources */,
 				504AC71D1C05B1EF00FF23AF /* THTabbarViewController.m in Sources */,
 				500C680F1C06E77500C0E896 /* XYPieChart.m in Sources */,
+				50F8DFDE1C17AEA10022F438 /* THscores.m in Sources */,
+				5006713A1C1C008A000DD900 /* THtotalTableViewCell.m in Sources */,
 				500C68341C07045600C0E896 /* MBProgressHUD+YXX.m in Sources */,
 				500C68311C07040F00C0E896 /* THLoginViewController.m in Sources */,
 				500C68381C07378800C0E896 /* THClassTableViewController.m in Sources */,
@@ -816,7 +852,11 @@
 				INFOPLIST_FILE = TH/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HDU.Teacher-Help.TH";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TH/UMessage_Sdk_1.2.1",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.edu.teacherhelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -831,7 +871,11 @@
 				INFOPLIST_FILE = TH/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HDU.Teacher-Help.TH";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TH/UMessage_Sdk_1.2.1",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.edu.teacherhelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

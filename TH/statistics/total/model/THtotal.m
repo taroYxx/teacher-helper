@@ -18,6 +18,9 @@
         self.leave = dic[@"leave"];
         self.name = dic[@"name"];
         self.studentNo = dic[@"studentNo"];
+        self.absenceArray = dic[@"absenceArray"];
+        self.leaveArray = dic[@"leaveArray"];
+        self.lateArray = dic[@"lateArray"];
         
         //        [self setValuesForKeysWithDictionary: dic];
     }

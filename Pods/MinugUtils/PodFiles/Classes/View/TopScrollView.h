@@ -22,7 +22,7 @@
 
 @property (nonatomic , strong ) NSArray *listArray;
 @property (nonatomic , weak) id <TopScrollViewDelegate> listDelegate ;
-@property (nonatomic , assign) NSInteger  selectNum ;
+@property (nonatomic , assign,readonly) NSInteger  selectNum ;
 
 -(void)setTitleColor:(UIColor*)color backColor:(UIColor *)backColor;
 

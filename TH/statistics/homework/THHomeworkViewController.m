@@ -7,8 +7,14 @@
 //
 
 #import "THHomeworkViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import "THscores.h"
 
-@interface THHomeworkViewController ()
+
+
+@interface THHomeworkViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic , strong) NSMutableArray * model;
+@property (nonatomic , weak) UITableView * tableView;
 
 @end
 
@@ -16,24 +22,82 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor = [UIColor grayColor];
-    self.view.backgroundColor = [UIColor redColor];
-    // Do any additional setup after loading the view.
+    self.model = [NSMutableArray array];
+
+    self.view.backgroundColor = [UIColor whiteColor];
+
+
+    [self getDataFromServe:^(NSArray *array) {
+        
+        for (NSDictionary *dict in array) {
+            THscores *scores = [THscores scoresWithDic:dict];
+            [self.model addObject:scores];
+            
+        }
+        THLog(@"%@",self.model);
+        [self addTableViewTo];
+    }];
+
+ }
+
+
+- (void)addTableViewTo{
+    UITableView *tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenW, screenH-64-43)];
+    self.tableView = tableview;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.model.count;
 }
 
-/*
-#pragma mark - Navigation
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *ID = [NSString stringWithFormat:@"cell%ld",indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    THscores *scores = self.model[indexPath.row];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(screenW/3, 0, screenW/3, cell.frame.size.height)];
+        [cell addSubview:name];
+        name.text = scores.name;
+        UILabel *fenshu = [[UILabel alloc] initWithFrame:CGRectMake(screenW - 44, 0, 44, 44)];
+        fenshu.text = [NSString stringWithFormat:@"%@分",scores.score];
+        [cell addSubview:fenshu];
+        
+        
+    }
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",scores.studentNo];
+
+
+    return cell;
 }
-*/
+
+- (void)getDataFromServe:(void(^)( NSArray *array))success{
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+    NSString *url = [NSString stringWithFormat:@"%@/%@/get_scores/",host,version];
+
+    NSDictionary *body = @{
+                               @"courseId" : self.courseId
+                               };
+    [manager POST:url parameters:body success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            NSArray *result = responseObject[@"scores"];
+            if (success) {
+                success(result);
+            }
+        }];
+
+    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+        THLog(@"%@",error);
+    }];
+    
+    
+}
+
 
 @end

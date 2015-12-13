@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+
 @interface THTotalViewController : UIViewController
 @property (nonatomic , strong) NSString * courseName;
 @property (nonatomic , strong) NSNumber * courseId;
+
 
 @end

@@ -43,6 +43,8 @@
 
 
 
+
+
 @end
 
 @implementation THRollCallViewController
@@ -113,10 +115,19 @@
         NSString *sql2 = [NSString stringWithFormat:@"SELECT * FROM class_%@ WHERE week = %@ AND (arrive = 1 OR absence = 1 OR leave = 1 OR later = 1);",self.courseId,self.weekOrdinal];
         FMResultSet *set2 = [self.db executeQuery:sql2];
         if (set2.next) {
-            UIView *view = [[UIView alloc] init];
-            view.backgroundColor = XColor(0, 0, 0, 0.3);
-            view.frame = self.view.frame;
-            [self.view addSubview:view];
+//            UIView *view = [[UIView alloc] init];
+//            view.backgroundColor = XColor(0, 0, 0, 0.3);
+//            view.frame = self.view.frame;
+//            [self.view addSubview:view];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(screenW*2/3, 0, screenW*1/3, 44)];
+            label.text = @"本周已点名";
+            label.textAlignment = NSTextAlignmentCenter;
+            [self.nameList addSubview:label];
+            self.nameList.allowsSelection = NO;
+            self.submitBtn.hidden = YES;
+         
+            
+            
         }
 
     }];
@@ -177,7 +188,6 @@
             _detail.courseId = self.courseId;
             _detail.view.frame = CGRectMake(0, 64+43, screenW, screenH-64-43);
             [self.view addSubview:_detail.view];
-            
         }
         _detail.view.hidden = NO;
         _fillcheck.view.hidden = YES;
@@ -188,7 +198,6 @@
         _subBtnTag = 1;
         if (!_fillcheck)
         {
-           
            [_submitBtn setTitle:@"提交补签" forState:UIControlStateNormal];
             _fillcheck = [[THFillCheckViewController alloc] init];
             [_fillcheck setDelegate:self];

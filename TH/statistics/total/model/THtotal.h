@@ -19,6 +19,9 @@
 @property (nonatomic , strong) NSString * name;
 @property (nonatomic , strong) NSNumber * studentNo;
 @property (nonatomic , strong) NSString * grades;
+@property (nonatomic , strong) NSArray * absenceArray;
+@property (nonatomic , strong) NSArray * leaveArray;
+@property (nonatomic , strong) NSArray * lateArray;
 
 
 - (instancetype)initWithDic:(NSDictionary *)dic;
