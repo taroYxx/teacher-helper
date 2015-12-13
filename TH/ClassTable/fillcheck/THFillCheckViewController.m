@@ -25,6 +25,7 @@
 
 
 
+
 @end
 
 @implementation THFillCheckViewController
@@ -71,6 +72,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackArrow"]];
+        icon.frame = CGRectMake(screenW-10-20, (cell.frame.size.height-15)/2, 10, 15);
+        cell.accessoryView = icon;
         THStudent *student = _model[indexPath.row];
         cell.textLabel.text = student.name;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",student.studentNo];

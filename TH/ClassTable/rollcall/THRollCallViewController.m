@@ -38,6 +38,8 @@
 @property (nonatomic , strong) NSArray * lateArray;
 @property (nonatomic , strong) FMDatabase * db;
 
+@property (nonatomic , assign) int biaoji;
+
 
 
 
@@ -61,6 +63,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.biaoji = 0;
     [MBProgressHUD showMessage:@"加载中" toView:self.view];
     self.view.backgroundColor = XColor(241, 241, 241, 1);
     _modelNor = [[NSMutableArray alloc] init];
@@ -277,21 +280,63 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.biaoji = self.biaoji+1;
+    int biaoji = self.biaoji%3;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_status"]];
-    icon.frame = CGRectMake(screenW-10-30, (cell.frame.size.height-30)/2, 30, 30);
-    cell.accessoryView = icon;
-    NSArray *array = [NSArray array];
-    if (indexPath.section == 0 ) {
-        array = _modelRec;
-    }else{
-        array = _modelNor;
+    if (biaoji == 1) {
+        
+        UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_status"]];
+        icon.frame = CGRectMake(screenW-10-30, (cell.frame.size.height-30)/2, 30, 30);
+        cell.accessoryView = icon;
+        NSArray *array = [NSArray array];
+        if (indexPath.section == 0 ) {
+            array = _modelRec;
+        }else{
+            array = _modelNor;
+        }
+        THStudent *student = array[indexPath.row];
+        [_absenceSet addObject:student.studentId];
+        [_leaveSet removeObject:student.studentId];
+        THLog(@"%@",_absenceSet);
+        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET absence = 1,leave = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
+
+    }else if(biaoji == 2){
+        UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blue_status"]];
+        icon.frame = CGRectMake(screenW-10-30, (cell.frame.size.height-30)/2, 30, 30);
+        cell.accessoryView = icon;
+        [tableView setEditing:NO];
+        NSArray *array = [NSArray array];
+        if (indexPath.section == 0 ) {
+            array = _modelRec;
+        }else{
+            array = _modelNor;
+        }
+        THStudent *student = array[indexPath.row];
+        [_absenceSet removeObject:student.studentId];
+        [_leaveSet addObject:student.studentId];
+        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 1, absence = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
+        THLog(@"%@",_leaveSet);
+
+    }else if(biaoji == 0){
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green_status"]];
+        icon.frame = CGRectMake(screenW-10-30, (cell.frame.size.height-30)/2, 30, 30);
+        cell.accessoryView = icon;
+        NSArray *array = [NSArray array];
+        if (indexPath.section == 0 ) {
+            array = _modelRec;
+        }else{
+            array = _modelNor;
+        }
+        THStudent *student = array[indexPath.row];
+        [_absenceSet removeObject:student.studentId];
+        [_leaveSet removeObject:student.studentId];
+        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 0, absence = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
     }
-    THStudent *student = array[indexPath.row];
-    [_absenceSet addObject:student.studentId];
-    [_leaveSet removeObject:student.studentId];
-    THLog(@"%@",_absenceSet);
-    [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET absence = 1,leave = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_status"]];
+//    icon.frame = CGRectMake(screenW-10-30, (cell.frame.size.height-30)/2, 30, 30);
+//    cell.accessoryView = icon;
     
     
   
@@ -496,6 +541,19 @@
       THLog(@"%@--%@--%@",_arriveArray, _leaveArray , _lateArray);
     
 }
+
+//- (void)viewDidDisappear:(BOOL)animated{
+//    [super viewDidDisappear:animated];
+//    [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET absence = 0,leave = 0 , later = 0 , arrive = 0 ;",self.courseId]];
+//}
+
+//- (void)absenceToserve:(id)array{
+//    [_absenceSet addObject:array];
+//    [_leaveSet removeObject:array];
+//}
+//- (void)absenceToDBwith:(id)courseId:(id)studentNo{
+//    [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET absence = 1,leave = 0 WHERE studentId = %@;",courseId,studentNo]];
+//}
 
 
 

@@ -257,6 +257,8 @@
 
 }
 
+
+
 - (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
 {
     return self.slice.count;

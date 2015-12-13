@@ -152,7 +152,9 @@
         }];
     }
 }
--(void)viewDidAppear:(BOOL)animated{
+
+- (void)viewDidAppear:(BOOL)animated{
+
     self.username.text = @"40686";
     self.password.text = @"cjh40686";
 }
