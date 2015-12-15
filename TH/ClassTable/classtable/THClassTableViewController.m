@@ -99,7 +99,19 @@
         UINavigationController *nav = [self.tabBarController.viewControllers objectAtIndex:1];
         THStatisticsViewController *statistic = [nav.viewControllers objectAtIndex:0];
         statistic.classList = array;
+        
+        
+        UINavigationController *nav1 = [self.tabBarController.viewControllers objectAtIndex:2];
+        THSettingTableViewController *setting = [nav1.viewControllers objectAtIndex:0];
+        setting.classlist = array;
+        
+        
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        
+        
+        
+        
         
     }];
 

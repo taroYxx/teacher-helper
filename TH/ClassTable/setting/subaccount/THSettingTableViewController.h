@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface THSettingTableViewController : UITableViewController
 @property (nonatomic , copy) NSString * name;
 @property (nonatomic , strong) NSNumber * teacherNO;
+@property (nonatomic , strong) NSArray * classlist;
+
 
 
 @end

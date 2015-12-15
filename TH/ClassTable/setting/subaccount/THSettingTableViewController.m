@@ -19,6 +19,7 @@
 @interface THSettingTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic , strong) NSMutableArray * groups;
 
+
 @end
 
 @implementation THSettingTableViewController
@@ -75,7 +76,9 @@
     THSettingItem *item2 = [THSettingItem itemWithTitle:@"设置统计百分比"];
     item.nextController = [[THSetNoticeViewController alloc] init];
     item1.nextController = [[THSetSubAccountViewController alloc] init];
-    item2.nextController = [[THSetStaticViewController alloc] init];
+    THSetStaticViewController *statice = [[THSetStaticViewController alloc] init];
+    statice.classlist = self.classlist;
+    item2.nextController = statice;
     item.iconImage = [UIImage imageNamed:@"msg"];
     item1.iconImage = [UIImage imageNamed:@"assistant"];
     item2.iconImage = [UIImage imageNamed:@"per"];
@@ -128,7 +131,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     THSettingGroup *group = self.groups[indexPath.section];
     THSettingItem *item = group.items[indexPath.row];
+
     if(item.nextController){
+
+        
     [self.navigationController pushViewController:item.nextController animated:YES];}
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     backItem.title = @"返回";

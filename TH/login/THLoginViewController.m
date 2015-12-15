@@ -12,7 +12,7 @@
 #import "THTabbarViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "THClassTableViewController.h"
-
+#import "UMessage.h"
 
 
 
@@ -75,7 +75,7 @@
     NSArray *loginbtnX = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[loginbtn]-20-|" options:0 metrics:nil views:@{@"loginbtn" : loginbtn}];
     [self.view addConstraints:loginbtnX];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(keyboardStartMove:) name:UIKeyboardWillChangeFrameNotification object:nil];
+//    [center addObserver:self selector:@selector(keyboardStartMove:) name:UIKeyboardWillChangeFrameNotification object:nil];
     [center addObserver:self selector:@selector(btnchange) name:UITextFieldTextDidChangeNotification object:self.username];
     [center addObserver:self selector:@selector(btnchange) name:UITextFieldTextDidChangeNotification object:self.password];
 }
@@ -114,6 +114,20 @@
             main.name = responseObject[@"name"];
             main.teacherNO = responseObject[@"teacherNo"];
             window.rootViewController = tab;
+            NSString *messtype = [NSString stringWithFormat:@"%@",self.username.text];
+            [UMessage addAlias:messtype type:@"username" response:^(id responseObject, NSError *error) {
+                if(responseObject)
+                {
+                    [self showMessageAlert:@"绑定成功！"];
+                }
+                else
+                {
+                    [self showMessageAlert:error.localizedDescription];
+                }
+
+            }];
+            
+            
         }else if (status.intValue == 3){
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"系统信息" message:@"用户不存在或密码不存在" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
@@ -140,18 +154,18 @@
     
 }
 
-- (void)keyboardStartMove:(NSNotification *)note{
-    CGRect keyboardframe = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGFloat transformY = keyboardframe.origin.y - screenH;
-    CGFloat loginbtnY = screenH-(self.loginbtn.frame.origin.y + self.loginbtn.frame.size.height);
-    CGFloat keyboardY = screenH - keyboardframe.origin.y;
-    if (keyboardY >= loginbtnY) {
-        CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        [UIView animateWithDuration:duration animations:^{
-            self.view.transform = CGAffineTransformMakeTranslation(0, transformY/2);
-        }];
-    }
-}
+//- (void)keyboardStartMove:(NSNotification *)note{
+//    CGRect keyboardframe = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGFloat transformY = keyboardframe.origin.y - screenH;
+//    CGFloat loginbtnY = screenH-(self.loginbtn.frame.origin.y + self.loginbtn.frame.size.height);
+//    CGFloat keyboardY = screenH - keyboardframe.origin.y;
+//    if (keyboardY >= loginbtnY) {
+//        CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+//        [UIView animateWithDuration:duration animations:^{
+//            self.view.transform = CGAffineTransformMakeTranslation(0, transformY/2);
+//        }];
+//    }
+//}
 
 - (void)viewDidAppear:(BOOL)animated{
 
@@ -165,6 +179,22 @@
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+- (void)showMessageAlert:(NSString *)message
+{
+    if([message length])
+    {
+        //处理前台消息框弹出
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Notification",@"Notification") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        NSLog(@"showMessageAlert: Message is nil...[%@]",message);
+    }
+    
 }
 
 @end

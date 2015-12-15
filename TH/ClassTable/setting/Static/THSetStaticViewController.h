@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface THSetStaticViewController : UIViewController
+@property (nonatomic , strong) NSArray * classlist;
 
 @end
