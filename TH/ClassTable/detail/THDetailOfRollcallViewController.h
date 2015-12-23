@@ -10,5 +10,6 @@
 
 @interface THDetailOfRollcallViewController : UIViewController
 @property (nonatomic , strong) NSNumber * courseId;
+@property (nonatomic , strong) NSNumber * week;
 
 @end

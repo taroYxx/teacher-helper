@@ -96,7 +96,10 @@
     THSettingItem *item1 = [THSettingItem itemWithTitle:@"关于"];
     item.iconImage = [UIImage imageNamed:@"mark"];
     item1.iconImage = [UIImage imageNamed:@"about"];
-    group.items = @[item,item1];
+    group.items = @[
+                    item,
+//                    item1
+                    ];
     [self.groups addObject:group];
     
 }
@@ -133,13 +136,21 @@
     THSettingItem *item = group.items[indexPath.row];
 
     if(item.nextController){
-
-        
-    [self.navigationController pushViewController:item.nextController animated:YES];}
+        [self.navigationController pushViewController:item.nextController animated:YES];
+    }
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     backItem.title = @"返回";
     [self.navigationController.navigationBar setTintColor:XColor(209, 84, 87, 1)];
     self.navigationItem.backBarButtonItem = backItem;
+    
+    if (indexPath.row == 0 && indexPath.section == 2) {
+        
+        NSString *appid = @"1068467929";
+        NSString *str = [NSString stringWithFormat:
+                         @"itms-apps://itunes.apple.com/cn/app/id%@?mt=8", appid];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+        //1068467929
+    }
     
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

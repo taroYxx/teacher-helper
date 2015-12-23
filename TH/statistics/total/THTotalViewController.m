@@ -211,6 +211,7 @@
     cell.selectarray = [array objectAtIndex:self.btntag];
     [cell.collectionView reloadData];
     cell.studentName.text = total.name;
+//    cell.studentName.text = @"张三";
     cell.studentId.text = [NSString stringWithFormat:@"%@",total.studentNo];
     cell.latetime.text = [NSString stringWithFormat:@"次数%@",total.late];
     cell.latetime.textAlignment = NSTextAlignmentCenter;

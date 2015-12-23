@@ -62,7 +62,7 @@
     loginbtn.backgroundColor = XColor(207, 85, 89, 1);
     [loginbtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginbtn];
-    loginbtn.enabled = YES;
+    loginbtn.enabled = NO;
     self.loginbtn = loginbtn;
     //设置自动布局
     
@@ -86,8 +86,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"系统信息" message:@"网络连接错误,请重试" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
-//        [alertView show];
+
     });
     
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
@@ -118,11 +117,11 @@
             [UMessage addAlias:messtype type:@"username" response:^(id responseObject, NSError *error) {
                 if(responseObject)
                 {
-                    [self showMessageAlert:@"绑定成功！"];
+                    THLog(@"%@",responseObject);
                 }
                 else
                 {
-                    [self showMessageAlert:error.localizedDescription];
+                    THLog(@"%@",error);
                 }
 
             }];
@@ -167,11 +166,7 @@
 //    }
 //}
 
-- (void)viewDidAppear:(BOOL)animated{
 
-    self.username.text = @"40686";
-    self.password.text = @"cjh40686";
-}
 
 - (void)btnchange{
     self.loginbtn.enabled = (self.username.text.length && self.password.text.length);
@@ -182,19 +177,19 @@
 }
 
 
-- (void)showMessageAlert:(NSString *)message
-{
-    if([message length])
-    {
-        //处理前台消息框弹出
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Notification",@"Notification") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil];
-        [alert show];
-    }
-    else
-    {
-        NSLog(@"showMessageAlert: Message is nil...[%@]",message);
-    }
-    
-}
+//- (void)showMessageAlert:(NSString *)message
+//{
+//    if([message length])
+//    {
+//        //处理前台消息框弹出
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Notification",@"Notification") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil];
+//        [alert show];
+//    }
+//    else
+//    {
+//        NSLog(@"showMessageAlert: Message is nil...[%@]",message);
+//    }
+//    
+//}
 
 @end

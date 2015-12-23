@@ -67,6 +67,7 @@
         [cell addSubview:view];
         THClass *class = _model[indexPath.row];
         cell.textLabel.text = class.courseName;
+//        cell.textLabel.text = @"信号与系统";
         NSArray *week = @[@"周一",@"周二",@"周三",@"周四",@"周五",@"周六",@"周日"];
       
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",[week objectAtIndex:class.week.intValue],class.lessonPeriod];

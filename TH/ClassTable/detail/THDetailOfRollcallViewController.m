@@ -53,7 +53,7 @@
     NSArray *array = @[@"absence",@"leave",@"later",@"arrive"];
     NSArray *status = @[_absenceModel,_leaveModel,_laterModel,_arriveModel];
     for (int i = 0; i < 4; i++) {
-        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM class_%@ WHERE %@ = 1",self.courseId,[array objectAtIndex:i]];
+        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM class_%@ WHERE %@ = 1 AND week = %@",self.courseId,[array objectAtIndex:i],self.week];
         FMResultSet *set = [self.db executeQuery:sql];
         while ([set next]) {
             NSString *studentId = [set stringForColumn:@"studentId"];
@@ -85,7 +85,7 @@
     NSNumber *arrive = @(ar/sum*360);
     _slices = [NSMutableArray arrayWithObjects:absence,leave,later,arrive, nil];
     self.modelArray = [NSArray array];
-    self.modelArray = _absenceModel;
+//    self.modelArray = _absenceModel;
     
 }
 
@@ -192,7 +192,10 @@
     }
     THdetailStudent *student = _modelArray[indexPath.row];
     cell.textLabel.text = student.studentName;
+//    cell.textLabel.text = @"张三";
+    
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",student.studentId];
+
     UIImageView *icon = [[UIImageView alloc] init];
     icon.frame = CGRectMake(screenW-10-30, (cell.frame.size.height-30)/2, 30, 30);
     cell.accessoryView = icon;

@@ -40,6 +40,7 @@
 
 @property (nonatomic , assign) int biaoji;
 
+@property (nonatomic , assign) NSInteger celltag;
 
 
 
@@ -78,7 +79,7 @@
     [_db open];
     
         
-        [_db executeUpdate:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS class_%@ (number integer PRIMARY KEY,week integer, studentId integer UNIQUE ,studentName text , lateTimes integer ,absence integer , leave integer , later integer , arrive integer );",self.courseId]];
+        [_db executeUpdate:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS class_%@ (number integer PRIMARY KEY,week integer, studentId integer ,studentName text , lateTimes integer ,absence integer , leave integer , later integer , arrive integer );",self.courseId]];
    
     _absenceSet = [[NSMutableSet alloc] init];
     _leaveSet = [[NSMutableSet alloc] init];
@@ -247,8 +248,8 @@
         numberOfabsence.adjustsFontSizeToFitWidth = YES;
         numberOfabsence.textColor = XColor(207, 85, 89, 1);
         [cell addSubview:numberOfabsence];
-        
-        
+        self.celltag = 0;
+        cell.tag = self.celltag;
         UILabel *numberOfThisClass = [[UILabel alloc] initWithFrame:CGRectMake(screenW-40-120, 2, 80, 13)];
         numberOfThisClass.font = [UIFont systemFontOfSize:15];
         numberOfThisClass.adjustsFontSizeToFitWidth = YES;
@@ -273,17 +274,25 @@
              numberOfThisClass.text = [NSString stringWithFormat:@"本课缺勤 :%@",student.lateTimesAtThisClass];
                                              
                                          }
-
+//        cell.textLabel.text = @"张三";
+//        cell.detailTextLabel.text = @"10000000";
+//        numberOfabsence.text = @"本堂课缺勤：10 次";
+//        numberOfThisClass.text = @"本堂课缺勤:10次";
+        
+//
     }
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.biaoji = self.biaoji+1;
-    int biaoji = self.biaoji%3;
+//    self.biaoji = self.biaoji+1;
+//    int biaoji = self.biaoji%3;
+  
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (biaoji == 1) {
+    cell.tag = (cell.tag+1)%3;
+    THLog(@"%ld",cell.tag);
+    if (cell.tag == 1) {
         
         UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_status"]];
         icon.frame = CGRectMake(screenW-10-30, (cell.frame.size.height-30)/2, 30, 30);
@@ -300,7 +309,7 @@
         THLog(@"%@",_absenceSet);
         [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET absence = 1,leave = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
 
-    }else if(biaoji == 2){
+    }else if(cell.tag == 2){
         UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blue_status"]];
         icon.frame = CGRectMake(screenW-10-30, (cell.frame.size.height-30)/2, 30, 30);
         cell.accessoryView = icon;
@@ -317,7 +326,7 @@
         [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 1, absence = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
         THLog(@"%@",_leaveSet);
 
-    }else if(biaoji == 0){
+    }else if(cell.tag == 0){
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green_status"]];
         icon.frame = CGRectMake(screenW-10-30, (cell.frame.size.height-30)/2, 30, 30);
@@ -402,6 +411,7 @@
         }else{
             array = _modelNor;
         }
+        cell.tag = 0;
         THStudent *student = array[indexPath.row];
         [_absenceSet removeObject:student.studentId];
         [_leaveSet removeObject:student.studentId];
@@ -468,6 +478,7 @@
                     [self.view addSubview:view];
                     _detail = [[THDetailOfRollcallViewController alloc] init];
                     _detail.courseId = self.courseId;
+                    _detail.week = self.weekOrdinal;
                     _detail.view.frame = CGRectMake(0, 64+43, screenW, screenH-64-43);
                     [self.view addSubview:_detail.view];
                     _segment.selectedSegmentIndex = 1;
