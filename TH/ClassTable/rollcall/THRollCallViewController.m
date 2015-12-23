@@ -38,9 +38,10 @@
 @property (nonatomic , strong) NSArray * lateArray;
 @property (nonatomic , strong) FMDatabase * db;
 
-@property (nonatomic , assign) int biaoji;
 
 @property (nonatomic , assign) NSInteger celltag;
+@property (nonatomic , assign) NSInteger alreadyWirte;
+
 
 
 
@@ -64,7 +65,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.biaoji = 0;
     [MBProgressHUD showMessage:@"加载中" toView:self.view];
     self.view.backgroundColor = XColor(241, 241, 241, 1);
     _modelNor = [[NSMutableArray alloc] init];
@@ -119,18 +119,13 @@
         NSString *sql2 = [NSString stringWithFormat:@"SELECT * FROM class_%@ WHERE week = %@ AND (arrive = 1 OR absence = 1 OR leave = 1 OR later = 1);",self.courseId,self.weekOrdinal];
         FMResultSet *set2 = [self.db executeQuery:sql2];
         if (set2.next) {
-//            UIView *view = [[UIView alloc] init];
-//            view.backgroundColor = XColor(0, 0, 0, 0.3);
-//            view.frame = self.view.frame;
-//            [self.view addSubview:view];
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(screenW*2/3, 0, screenW*1/3, 44)];
             label.text = @"本周已点名";
             label.textAlignment = NSTextAlignmentCenter;
             [self.nameList addSubview:label];
             self.nameList.allowsSelection = NO;
             self.submitBtn.hidden = YES;
-         
-            
+            self.alreadyWirte = 1;
             
         }
 
@@ -190,6 +185,7 @@
         if (!_detail) {
             _detail = [[THDetailOfRollcallViewController alloc] init];
             _detail.courseId = self.courseId;
+            _detail.week = self.weekOrdinal;
             _detail.view.frame = CGRectMake(0, 64+43, screenW, screenH-64-43);
             [self.view addSubview:_detail.view];
         }
@@ -285,10 +281,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    self.biaoji = self.biaoji+1;
-//    int biaoji = self.biaoji%3;
-  
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{  
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.tag = (cell.tag+1)%3;
     THLog(@"%ld",cell.tag);
@@ -307,7 +300,7 @@
         [_absenceSet addObject:student.studentId];
         [_leaveSet removeObject:student.studentId];
         THLog(@"%@",_absenceSet);
-        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET absence = 1,leave = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
+        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET absence = 1,leave = 0 WHERE studentId = %@ AND week = %@;",self.courseId,student.studentNo,self.weekOrdinal]];
 
     }else if(cell.tag == 2){
         UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blue_status"]];
@@ -323,7 +316,7 @@
         THStudent *student = array[indexPath.row];
         [_absenceSet removeObject:student.studentId];
         [_leaveSet addObject:student.studentId];
-        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 1, absence = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
+        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 1, absence = 0 WHERE studentId = %@ AND week = %@;",self.courseId,student.studentNo,self.weekOrdinal]];
         THLog(@"%@",_leaveSet);
 
     }else if(cell.tag == 0){
@@ -340,7 +333,7 @@
         THStudent *student = array[indexPath.row];
         [_absenceSet removeObject:student.studentId];
         [_leaveSet removeObject:student.studentId];
-        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 0, absence = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
+        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 0, absence = 0 WHERE studentId = %@ AND week = %@;",self.courseId,student.studentNo,self.weekOrdinal]];
     }
 //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 //    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_status"]];
@@ -374,7 +367,7 @@
         [_absenceSet addObject:student.studentId];
         [_leaveSet removeObject:student.studentId];
         THLog(@"%@",_absenceSet);
-        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET absence = 1, leave = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
+        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET absence = 1, leave = 0 WHERE studentId = %@ AND week = %@;",self.courseId,student.studentNo,self.weekOrdinal]];
         [tableView setEditing:NO];
     }];
     absence.backgroundColor = XColor(208, 85, 90, 1);
@@ -394,7 +387,7 @@
         THStudent *student = array[indexPath.row];
         [_absenceSet removeObject:student.studentId];
         [_leaveSet addObject:student.studentId];
-          [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 1, absence = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
+          [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 1, absence = 0 WHERE studentId = %@ AND week = %@;",self.courseId,student.studentNo,self.weekOrdinal]];
         THLog(@"%@",_leaveSet);
 
         
@@ -415,14 +408,20 @@
         THStudent *student = array[indexPath.row];
         [_absenceSet removeObject:student.studentId];
         [_leaveSet removeObject:student.studentId];
-        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 0, absence = 0 WHERE studentId = %@;",self.courseId,student.studentNo]];
+        [_db executeUpdate:[NSString stringWithFormat:@"UPDATE class_%@ SET leave = 0, absence = 0 WHERE studentId = %@ AND week = %@;",self.courseId,student.studentNo,self.weekOrdinal]];
         [tableView setEditing:NO];
     }];
     return @[cancel,leave,absence];
     
 }
 
-
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.alreadyWirte == 1) {
+        return UITableViewCellEditingStyleNone;
+    }
+    return UITableViewCellEditingStyleDelete;
+    
+}
 
 
 
@@ -448,7 +447,7 @@
 - (void)submit{
     if (_subBtnTag == 0) {
         //添加已到数据
-        NSString *string = [NSString stringWithFormat:@"UPDATE class_%@ SET arrive = 1 WHERE absence = 0 and leave = 0",self.courseId];
+        NSString *string = [NSString stringWithFormat:@"UPDATE class_%@ SET arrive = 1 WHERE absence = 0 and leave = 0 AND week = %@",self.courseId,self.weekOrdinal];
         [_db executeUpdate:string];
         [_db close];
         //提交点名
@@ -472,10 +471,13 @@
             if ([status integerValue] == 1) {
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"提交成功！" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    UIView *view = [[UIView alloc] init];
-                    view.frame = CGRectMake(0, 64+43, screenW, screenH-64-43);
-                    view.backgroundColor = XColor(0, 0, 0, 0.6);
-                    [self.view addSubview:view];
+//                    UIView *view = [[UIView alloc] init];
+//                    view.frame = CGRectMake(0, 64+43, screenW, screenH-64-43);
+//                    view.backgroundColor = XColor(0, 0, 0, 0.6);
+//                    [self.view addSubview:view];
+                    self.nameList.allowsSelection = NO;
+                    self.submitBtn.hidden = YES;
+                    self.alreadyWirte = 1;
                     _detail = [[THDetailOfRollcallViewController alloc] init];
                     _detail.courseId = self.courseId;
                     _detail.week = self.weekOrdinal;

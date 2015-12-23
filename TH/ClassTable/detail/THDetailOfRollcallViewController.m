@@ -54,6 +54,7 @@
     NSArray *status = @[_absenceModel,_leaveModel,_laterModel,_arriveModel];
     for (int i = 0; i < 4; i++) {
         NSString *sql = [NSString stringWithFormat:@"SELECT * FROM class_%@ WHERE %@ = 1 AND week = %@",self.courseId,[array objectAtIndex:i],self.week];
+        THLog(@"ads%@",self.week);
         FMResultSet *set = [self.db executeQuery:sql];
         while ([set next]) {
             NSString *studentId = [set stringForColumn:@"studentId"];
